@@ -1,8 +1,0 @@
-[2018-04-24 18:28:07] START
-[2018-05-15 19:39:05] CREATE alumnos.py: 0
-[2018-05-15 19:39:47] CREATE facturacion.py: 0
-[2018-05-15 19:39:59] CREATE reportes.py: 0
-[2018-05-15 19:40:48] DELETE SEF/controllers/alumnos.py: -1
-[2018-05-15 19:40:56] DELETE SEF/controllers/facturacion.py: -1
-[2018-05-15 19:41:01] DELETE SEF/controllers/reportes.py: -1
-[2018-05-15 19:43:41] CREATE alumnos.py: 0
