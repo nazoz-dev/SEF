@@ -31,7 +31,7 @@ response.google_analytics_id = None
 response.menu = [
     (T('Home'), False, URL('default', 'index'), []),
     (T('Alumnos'), False, None, [
-            (T('Altas'), False, ''),
+            (T('Altas'), False, URL('alumnos','altas')),
             (T('Bajas'), False, ''),
             (T('Modificaciones'), False, ''),
         ]),
