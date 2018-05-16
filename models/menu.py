@@ -5,7 +5,7 @@
 # Customize your APP title, subtitle and menus here
 # ----------------------------------------------------------------------------------------------------------------------
 
-response.logo = A(B('web', SPAN(2), 'py'), XML('&trade;&nbsp;'),
+response.logo = A(B('SEF'), XML('&trade;&nbsp;'),
                   _class="navbar-brand", _href="http://www.web2py.com/",
                   _id="web2py-logo")
 response.title = request.application.replace('_', ' ').title()
@@ -29,7 +29,18 @@ response.google_analytics_id = None
 # ----------------------------------------------------------------------------------------------------------------------
 
 response.menu = [
-    (T('Home'), False, URL('default', 'index'), [])
+    (T('Home'), False, URL('default', 'index'), []),
+    (T('Alumnos'), False, None, [
+            (T('Altas'), False, ''),
+            (T('Bajas'), False, ''),
+            (T('Modificaciones'), False, ''),
+        ]),
+    (T('Facturacion'), False, URL('default', 'index'), []),
+        (T('Reportes'), False, None, [
+            (T('A'), False, ''),
+            (T('B'), False, ''),
+            (T('C'), False, ''),
+        ]),
 ]
 
 DEVELOPMENT_MENU = True
@@ -47,7 +58,9 @@ def _():
     ctr = request.controller
     # ------------------------------------------------------------------------------------------------------------------
     # useful links to internal and external resources
+
     # ------------------------------------------------------------------------------------------------------------------
+"""
     response.menu += [
         (T('My Sites'), False, URL('admin', 'default', 'site')),
         (T('This App'), False, '#', [
@@ -142,7 +155,7 @@ def _():
              'http://webchat.freenode.net/?channels=web2py'),
         ]),
     ]
-
+"""
 
 if DEVELOPMENT_MENU:
     _()
