@@ -35,7 +35,7 @@ response.menu = [
             (T('Bajas'), False, URL('alumnos','bajas')),
             (T('Modificaciones'),False, URL('alumnos','modificaciones')),
         ]),
-    (T('Facturacion'), False, URL('default', 'index'), []),
+    (T('Facturacion'), False, URL('facturacion', 'formulario'), []),
         (T('Reportes'), False, None, [
             (T('A'), False, ''),
             (T('B'), False, ''),
