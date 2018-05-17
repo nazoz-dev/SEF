@@ -4,3 +4,7 @@ def index(): return dict(message="hello from alumnos.py")
 
 def altas():
     return dict()
+
+
+def bajas():
+    return dict()
