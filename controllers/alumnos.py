@@ -8,3 +8,6 @@ def altas():
 
 def bajas():
     return dict()
+
+def modificaciones():
+    return dict()
