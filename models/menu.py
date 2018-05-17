@@ -32,8 +32,8 @@ response.menu = [
     (T('Home'), False, URL('default', 'index'), []),
     (T('Alumnos'), False, None, [
             (T('Altas'), False, URL('alumnos','altas')),
-            (T('Bajas'), False, ''),
-            (T('Modificaciones'), False, ''),
+            (T('Bajas'), False, URL('alumnos','bajas')),
+            (T('Modificaciones'),False, URL('alumnos','modificaciones')),
         ]),
     (T('Facturacion'), False, URL('default', 'index'), []),
         (T('Reportes'), False, None, [
