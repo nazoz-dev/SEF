@@ -20,3 +20,9 @@ def formulario():
         mensaje = "Seleccione un cliente"
     #redirije los valores al HTML
     return dict()#message=mensaje, lista_clientes=lista_clientes, hoy=fecha_hoy,)
+
+def cuota():
+    return dict()
+
+def confirmar():
+    return dict()
