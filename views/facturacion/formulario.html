@@ -1,40 +1,33 @@
 {{extend 'layout.html'}}
-<h1>REGISTRAR VENTA</h1>
+<h1>REGISTRAR PAGO</h1>
 
-<form class="form-horizontal" enctype="multipart/form-data" method="POST">
-    <div class="form-group">
-        <label for="campo_cliente" class="col-sm-1 control-label">CLIENTE</label>
-        <div class="col-sm-2">
-            <select class="form-control" id="campo_cliente" name="id_cliente"></select>
-        </div>
-        <label for="campo_numero_comprobante" class="col-sm-2 control-label">N° DE COMPROBANTE</label>
-        <div class="col-sm-2">
-            <input pattern= "[0-9.]+" type="text" class="form-control" name="numero_factura" id="campo_numero_comprobante" required>
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-1 control-label">FECHA</label>
-        <div class="col-sm-2">
-            <input class="form-control" name="fecha">
-        </div>
-        <label for="tipo_de_pago" class="col-sm-2 control-label">TIPO DE PAGO</label>
-        <div class="col-sm-2">
-            <select class="form-control" name="tipo_de_pago" id="pago">
-                <option>Efectivo</option>
-                <option>Credito</option>
-            </select>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-3">
-            <input type="submit" name="boton_enviar" class="btn btn-default" value="AGREGAR PRODUCTOS">
-        </div>
-    </div>
-</form>
 <form class="form-horizontal" action="{{=URL(c='facturacion', f='cuota')}}" enctype="multipart/form-data" method="POST">
-    <div class="form-group">
+<div class="form-group">
+            <label for="campo_cliente" class="col-sm-1 control-label">PERIODO</label>
+            <div class="col-sm-2">
+               <select class="form-control" id="campo_cliente" name="id_cliente">
+                  "for reg_cliente in lista_clientes"
+                  <option value="reg_cliente.id_clientereg_cliente.nombre_de_fantasia - reg_cliente.razon_social"</option>
+                  pass
+                </select>
+    </div>
+            <label for="campo_cliente" class="col-sm-1 control-label">CURSO</label>
+            <div class="col-sm-2">
+               <select class="form-control" id="campo_cliente" name="id_cliente">
+                  "for reg_cliente in lista_clientes"
+                  <option value="reg_cliente.id_clientereg_cliente.nombre_de_fantasia - reg_cliente.razon_social"</option>
+                  pass
+                </select>
+            </div>
+            <label for="campo_numero_comprobante" class="col-sm-2 control-label">IMPORTE DE CUOTA</label>
+            <div class="col-sm-2">
+                <input pattern= "[0-9.]+" type="text" class="form-control" name="numero_factura" id="campo_numero_comprobante" required>
+            </div>
+        <div class="form-group">
         <div class="col-md-3">
-            <button type="submit" class="btn btn-default">CLIENTE NUEVO</button>
+          <input type="submit" name="boton_enviar" class="btn btn-default" value="AGREGAR PRODUCTOS">
         </div>
+    </div>
+
     </div>
 </form>
