@@ -26,3 +26,6 @@ def cuota():
 
 def confirmar():
     return dict()
+
+def vista_previa():
+    return dict ()
