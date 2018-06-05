@@ -1,0 +1,26 @@
+[2018-05-16 15:31:33] START
+[2018-05-16 15:31:33] EDIT SEF/models/menu.py: 13
+[2018-05-16 15:32:48] EDIT SEF/models/menu.py: 0
+[2018-05-16 15:33:10] EDIT SEF/models/menu.py: 0
+[2018-05-16 15:33:56] EDIT SEF/models/menu.py: 0
+[2018-05-16 15:46:05] CREATE facturacion.py: 0
+[2018-05-16 15:48:12] CREATE reportes.py: 0
+[2018-05-16 15:55:33] CREATE alumnos/altas.html: 0
+[2018-05-16 16:03:28] EDIT SEF/controllers/alumnos.py: 2
+[2018-05-16 16:08:24] EDIT SEF/models/menu.py: 0
+[2018-05-16 21:15:39] EDIT SEF/controllers/facturacion.py: 2
+[2018-05-16 21:43:09] EDIT SEF/models/menu.py: 0
+[2018-05-22 19:46:50] EDIT SEF/views/alumnos/altas.html: 2
+[2018-05-22 19:48:04] EDIT SEF/views/alumnos/altas.html: -1
+[2018-06-05 15:10:06] CREATE facturacion/formulario.html: 0
+[2018-06-05 15:17:51] EDIT SEF/views/facturacion/formulario.html: 36
+[2018-06-05 15:18:52] EDIT SEF/views/facturacion/formulario.html: 0
+[2018-06-05 15:22:56] EDIT SEF/views/facturacion/formulario.html: 0
+[2018-06-05 15:23:21] EDIT SEF/controllers/facturacion.py: 2
+[2018-06-05 16:15:26] CREATE facturacion/cuota.html: 0
+[2018-06-05 16:19:19] EDIT SEF/views/facturacion/cuota.html: 60
+[2018-06-05 16:20:57] EDIT SEF/views/facturacion/cuota.html: 0
+[2018-06-05 16:21:11] EDIT SEF/views/facturacion/cuota.html: 0
+[2018-06-05 16:32:03] EDIT SEF/controllers/facturacion.py: 2
+[2018-06-05 16:32:35] CREATE facturacion/confirmar.html: 0
+[2018-06-05 16:35:17] EDIT SEF/views/facturacion/confirmar.html: 14
