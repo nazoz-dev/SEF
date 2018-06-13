@@ -29,3 +29,6 @@ def confirmar():
 
 def vista_previa():
     return dict ()
+
+def vista_previa_factura():
+    return dict()
