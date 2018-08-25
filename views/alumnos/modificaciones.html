@@ -1,6 +1,7 @@
 {{extend 'layout.html'}}
 <body style="background-color:#87CEEB;">
 <br></br>
+
 <form class="form-horizontal">
     <div class="form-group">
         <div class="col-xs-12 text-center">
@@ -9,8 +10,10 @@
                     <tr>
                         <th>
                             <h4><center><img SRC="http://www.hersis.cl/servicios/servicio_tecnico.png" WIDTH=178 HEIGHT=180></img></center></h4>
-                            <h1 class="text-left"><center>Modificar datos del Alumno/a</center></h1>
+                            <h1 class="text-left"><center>MODIFICAR DATOS DEL ALUMNO/A</center></h1>
                             <br>
+
+
 
                            <center>
                                <table WIDTH=800 HEIGHT=200 style="background-color:#e0e0e0" >
@@ -18,99 +21,21 @@
                                        <tr>
                                           <th>
                                             <div class="row">
-                                              <div class="col-xs-6 col-md-4">DNI</div>
-                                            </div>
-                                            <div class="row">
-                                              <div class="col-xs-6 col-md-4"><input NAME="dni"><h4></h4></input></div>
-                                            </div>
-                                            <div class="row">
-                                              <div class="col-xs-6 col-md-4">Apellido/s</div>
-                                              <div class="col-xs-6 col-md-4">Nombre/s</div>
-                                            </div>
-                                            <div class="row">
-                                              <div class="col-xs-6 col-md-4">
-                                                  <input NAME="apellido"><h4></h4></input>
+                                                <br>
+                                                <h2><center>Ingrese el DNI del alumno que desea MODIFICAR</center></h2>
+                                                <br>
+                                              <div class="col-xs-10">
+                                                  <center><INPUT NAME="dni"/> <button type="button" class="btn btn-default">Iniciar Búsqueda</center></button>
                                               </div>
-                                              <div class="col-xs-6 col-md-4">
-                                                  <input NAME="nombre"><h4></h4></input>
-                                              </div>
-                                            </div>
-                                            <div class="row">
-                                              <div class="col-xs-6 col-md-4">Sexo</div>
-                                              <div class="col-xs-6 col-md-4">Fecha de Nacimiento</div>
-                                            </div>
-                               
-                                            <div class="row">
-                                                <div class="col-xs-6 col-md-4">
-                                                    <select>
-                                                      <option></option>
-                                                      <option value="hombre">Hombre</option>
-                                                      <option value="mujer">Mujer</option>
-                                                    </select>
-                                                </div>
-                                                <div class="col-xs-6 col-md-4">
-                                                    <input type="date" NAME="fecha_nac"><h4></h4></input>
-                                                </div>
-                                            </div>
-                    
-                                            <div class="row">
-                                              <div class="col-xs-6 col-md-4">Localidad</div>
-                                              <div class="col-xs-6 col-md-4">Domicilio</div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-xs-6 col-md-4">
-                                                    <select>
-                                                      <option></option>
-                                                      <option value="g_catan">González Catán</option>
-                                                      <option value="v_del_p">Virrey del Pino</option>
-                                                      <option value="ponte">Pontevedra</option>
-                                                      <option value="g_lafe">Gregorio de Laferrere</option>
-                                                      <option value="casanova">Isidro Casanova</option>
-                                                      <option value="eze">Ezeiza</option>
-                                                      <option value="castillo">Rafael Castillo</option>
-                                                      <option value="s_justo">San Justo</option>
-                                                      <option value="merlo">Merlo</option>
-                                                      <option value="moron">Morón</option>
-                                                      <option value="r_mejia">Ramos Mejia</option>
-                                                      <option value="otra">Otra</option>
-                                                    </select>
-                                                </div>
-                                                <div class="col-xs-6 col-md-4">
-                                                  <input NAME="domicilio"><h4></h4></input>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                              <div class="col-xs-6 col-md-4">Teléfono</div>
-                                              <div class="col-xs-6 col-md-4">Curso y División</div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-xs-6 col-md-4">
-                                                  <input NAME="nacionalidad"><h4></h4></input>
-                                                </div>
-                                                <div class="col-xs-6 col-md-4">
-                                                    <select>
-                                                      <option></option>
-                                                      <option value="1atm">1°A - T.Mañana</option>
-                                                      <option value="1btm">1°B - T.Tarde</option>
-                                                      <option value="1att">2°A - T.Mañana</option>
-                                                      <option value="1btt">2°B - T.Tarde</option>
-                                                      <option value="1att">3°A - T.Mañana</option>
-                                                      <option value="1btt">3°B - T.Tarde</option>
-                                                      <option value="1att">4°A - T.Mañana</option>
-                                                      <option value="1btt">4°B - T.Tarde</option>
-                                                      <option value="1att">5°A - T.Mañana</option>
-                                                      <option value="1btt">5°B - T.Tarde</option>
-                                                      <option value="1att">6°A - T.Mañana</option>
-                                                      <option value="1btt">6°B - T.Tarde</option>                                                    
-                                                    </select>
-                                                </div>
+                                            </div>    
+<br>
+
                                             </th>
                                         </tr>
                                     </thead>
                                 </table>
                             </center>
 <br>
-                            <center><button type="button" class="btn btn-primary">CONFIRMAR DATOS</button></center>
 <br>
                         </th>
                     </tr>
@@ -119,4 +44,3 @@
         </div>
     </div>
 </form>
-<br>
