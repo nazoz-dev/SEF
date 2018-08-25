@@ -40,6 +40,7 @@
                                               <div class="col-xs-6 col-md-4">Sexo</div>
                                               <div class="col-xs-6 col-md-4">Fecha de Nacimiento</div>
                                             </div>
+                               
                                             <div class="row">
                                                 <div class="col-xs-6 col-md-4">
                                                     <select>
@@ -52,20 +53,35 @@
                                                     <input type="date" NAME="fecha_nac"><h4></h4></input>
                                                 </div>
                                             </div>
+                    
                                             <div class="row">
-                                              <div class="col-xs-6 col-md-4">Nacionalidad</div>
+                                              <div class="col-xs-6 col-md-4">Localidad</div>
                                               <div class="col-xs-6 col-md-4">Domicilio</div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-xs-6 col-md-4">
-                                                  <input NAME="nacionalidad"><h4></h4></input>
+                                                    <select>
+                                                      <option></option>
+                                                      <option value="g_catan">González Catán</option>
+                                                      <option value="v_del_p">Virrey del Pino</option>
+                                                      <option value="ponte">Pontevedra</option>
+                                                      <option value="g_lafe">Gregorio de Laferrere</option>
+                                                      <option value="casanova">Isidro Casanova</option>
+                                                      <option value="eze">Ezeiza</option>
+                                                      <option value="castillo">Rafael Castillo</option>
+                                                      <option value="s_justo">San Justo</option>
+                                                      <option value="merlo">Merlo</option>
+                                                      <option value="moron">Morón</option>
+                                                      <option value="r_mejia">Ramos Mejia</option>
+                                                      <option value="otra">Otra</option>
+                                                    </select>
                                                 </div>
                                                 <div class="col-xs-6 col-md-4">
                                                   <input NAME="domicilio"><h4></h4></input>
                                                 </div>
                                             </div>
                                             <div class="row">
-                                              <div class="col-xs-6 col-md-4">Codigo Postal</div>
+                                              <div class="col-xs-6 col-md-4">Teléfono</div>
                                               <div class="col-xs-6 col-md-4">Curso y División</div>
                                             </div>
                                             <div class="row">
@@ -75,10 +91,18 @@
                                                 <div class="col-xs-6 col-md-4">
                                                     <select>
                                                       <option></option>
-                                                      <option value="1atm">1°A - T.M</option>
-                                                      <option value="1btm">1°B - T.M</option>
-                                                      <option value="1att">1°A - T.T</option>
-                                                      <option value="1btt">1°B - T.T</option>
+                                                      <option value="1atm">1°A - T.Mañana</option>
+                                                      <option value="1btm">1°B - T.Tarde</option>
+                                                      <option value="1att">2°A - T.Mañana</option>
+                                                      <option value="1btt">2°B - T.Tarde</option>
+                                                      <option value="1att">3°A - T.Mañana</option>
+                                                      <option value="1btt">3°B - T.Tarde</option>
+                                                      <option value="1att">4°A - T.Mañana</option>
+                                                      <option value="1btt">4°B - T.Tarde</option>
+                                                      <option value="1att">5°A - T.Mañana</option>
+                                                      <option value="1btt">5°B - T.Tarde</option>
+                                                      <option value="1att">6°A - T.Mañana</option>
+                                                      <option value="1btt">6°B - T.Tarde</option>                                                    
                                                     </select>
                                                 </div>
                                             </th>
@@ -98,3 +122,14 @@
 </form>
 
 <br>
+
+{{"""
+db.Postulantes.apellido.requires=IS_UPPER()
+db.Postulantes.dni.requires=[IS_NOT_IN_DB(db, db.Postulantes.dni,error_message='EL CAMPO DNI FALTA INGRESAR O YA HA SIDO CARGADO EN EL SISTEMA'), IS_LENGTH(8)]
+db.Postulantes.apellido.requires=IS_NOT_EMPTY(error_message='INFORMACION NECESARIA PARA CONTINUAR LA CARGA')
+db.Postulantes.nombres.requires=IS_NOT_EMPTY(error_message='INFORMACION NECESARIA PARA CONTINUAR LA CARGA')
+db.Postulantes.sexo.requires=IS_IN_SET(['F','M'])
+db.Postulantes.localidad.requires=IS_IN_SET(['González Catán','Virrey del Pino','Pontevedra','Gregorio de Laferrere','Isidro Casanova','Rafael Castillo','San Justo','Ciudad Evita','Morón','Merlo','Ramos Mejia','Otro'])
+db.Postulantes.ocupado.requires=IS_IN_SET(['SÍ','NO'], error_message='ESTE CAMPO NO PUEDE ESTAR VACIO')
+db.Postulantes.categoria.requires=IS_IN_DB(db,db.Categorias.id,'%(tipo_de_empleo)s',error_message='ESTE CAMPO DEBE COMPLETARSE')
+"""}}
