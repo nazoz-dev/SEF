@@ -162,3 +162,18 @@ db.alumnos.curso.requires=IS_IN_DB(db,db.curso.curso, '%(nombre)s', zero=T('Eleg
 db.alumnos.turno.requires=IS_IN_SET(['Mañana', 'Tarde'], zero=T('Elegir una opción'), error_message='Es necesario completar este campo'),
 
 ########################################## Fin de la Tabla Alumnos ######################################################
+
+################################################### Tabla Curso #########################################################
+
+db.define_table('curso',
+                Field('curso', 'list:integer',label=T('Curso')),
+                Field('turno', 'list:string',label=T('Turno')),
+                Field('nivel', 'list:string',label=T('Nivel')),
+                Field('registro', 'datetime',writable=False, readable=False,default=request.now),
+               )
+
+db.curso.curso.requires=IS_IN_SET([1, 2, 3, 4, 5, 6], zero=T('Elegir una opción'), error_message="Es necesario completar este campo")
+db.curso.turno.requires=IS_IN_SET(['Mañana', 'Tarde'], zero=T('Elegir una opción'), error_message='Es necesario completar este campo')
+db.curso.nivel.requires=IS_IN_SET(['Básico', 'Superior'], zero=T('Elegir una opción'), error_message='Es necesario completar este campo'),
+
+############################################# Fin de la Tabla Curso ####################################################
