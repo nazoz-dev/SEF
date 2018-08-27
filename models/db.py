@@ -135,7 +135,7 @@ auth.settings.reset_password_requires_verification = True
 ########## Creacion de la Base de Datos   ##############
 ########################################################
 
-############################################################################ Tabla Alumnos ##############################################################################################
+################################################# Tabla Alumnos #######################################################
 
 db.define_table('alumnos',
         Field('dni', 'integer',label=T('DNI')),
@@ -150,3 +150,15 @@ db.define_table('alumnos',
         Field('turno','list:string',label=T('Turno')),
 
         Field('registro', 'datetime',writable=False, readable=False,default=request.now),)
+
+db.alumnos.dni.requires=[ IS_NOT_IN_DB(db,db.alumnos.dni, error_message="El campo esta incompleto o ya esta en la base de datos."), IS_LENGTH(8,error_message="Excedio la cantidad de digitos permitidos para este campo.")]
+db.alumnos.apellido.requires=[IS_LOWER(), IS_NOT_EMPTY(error_message="Es necesario completar este campo")]
+db.alumnos.nombre.requires=[IS_LOWER(), IS_NOT_EMPTY(error_message="Es necesario completar este campo")]
+db.alumnos.sexo.requires=IS_IN_SET(["Masculino", "Femenino"], zero=T('Elegir una opción'), error_message="Es necesario completar este campo")
+db.alumnos.localidad.requires=IS_IN_SET(['González Catán','Virrey del Pino', 'Pontevedra', 'Gregorio de Laferrere', 'Isidro Casanova','Rafael Castillo','San Justo','Ciudad Evita','Morón','Merlo','Ramos Mejía','Otro'], zero=T('Elegir una opción'), error_message="Es necesario completar este campo")
+db.alumnos.domicilio.requires=[IS_LOWER(), IS_NOT_EMPTY(error_message="Es necesario completar este campo")]
+db.alumnos.telefono.requires=[ IS_NOT_IN_DB(db,db.alumnos.telefono, error_message="Es necesario completar este campo."), IS_LENGTH(10,error_message="Excedio la cantidad de digitos permitidos para este campo.")]
+db.alumnos.curso.requires=IS_IN_DB(db,db.curso.curso, '%(nombre)s', zero=T('Elegir una opción'), error_message='Es necesario completar este campo')
+db.alumnos.turno.requires=IS_IN_SET(['Mañana', 'Tarde'], zero=T('Elegir una opción'), error_message='Es necesario completar este campo'),
+
+########################################## Fin de la Tabla Alumnos ######################################################
