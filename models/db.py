@@ -130,3 +130,23 @@ auth.settings.reset_password_requires_verification = True
 # after defining tables, uncomment below to enable auditing
 # -------------------------------------------------------------------------
 # auth.enable_record_versioning(db)
+
+########################################################
+########## Creacion de la Base de Datos   ##############
+########################################################
+
+############################################################################ Tabla Alumnos ##############################################################################################
+
+db.define_table('alumnos',
+        Field('dni', 'integer',label=T('DNI')),
+        Field('apellido', 'string',label=T('Apellido')),
+        Field('nombre','string',label=T('Nombres')),
+        Field('sexo', 'list:string',label=T('Sexo'),),
+        Field('f_nacimiento', 'date', label=T('Fecha de Nacimiento')),
+        Field('localidad','list:string',label=T('Localidad')),
+        Field('domicilio', 'string',label=T('Domicilio')),
+        Field('telefono', 'integer',label=T('Telefono')),
+        Field('curso','list:string',label=T('Curso')),
+        Field('turno','list:string',label=T('Turno')),
+
+        Field('registro', 'datetime',writable=False, readable=False,default=request.now),)
