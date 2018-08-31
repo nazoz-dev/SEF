@@ -158,7 +158,7 @@ db.alumnos.sexo.requires=IS_IN_SET(["Masculino", "Femenino"], zero=T('Elegir una
 db.alumnos.localidad.requires=IS_IN_SET(['González Catán','Virrey del Pino', 'Pontevedra', 'Gregorio de Laferrere', 'Isidro Casanova','Rafael Castillo','San Justo','Ciudad Evita','Morón','Merlo','Ramos Mejía','Otro'], zero=T('Elegir una opción'), error_message="Es necesario completar este campo")
 db.alumnos.domicilio.requires=[IS_LOWER(), IS_NOT_EMPTY(error_message="Es necesario completar este campo")]
 db.alumnos.telefono.requires=[ IS_NOT_IN_DB(db,db.alumnos.telefono, error_message="Es necesario completar este campo."), IS_LENGTH(10,error_message="Excedio la cantidad de digitos permitidos para este campo.")]
-db.alumnos.curso.requires=IS_IN_DB(db,db.curso.curso, '%(nombre)s', zero=T('Elegir una opción'), error_message='Es necesario completar este campo')
+
 db.alumnos.turno.requires=IS_IN_SET(['Mañana', 'Tarde'], zero=T('Elegir una opción'), error_message='Es necesario completar este campo'),
 
 ########################################## Fin de la Tabla Alumnos ######################################################
