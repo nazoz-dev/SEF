@@ -10,7 +10,7 @@ import datetime
 import copy
 import gluon.contenttype
 import gluon.fileutils
-from gluon._compat import iteritems
+iteritems = dict.iteritems
 
 is_gae = request.env.web2py_runtime_gae or False
 
