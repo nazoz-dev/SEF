@@ -188,3 +188,11 @@ db.define_table('cuota',
                )
 
 ############################################# Fin de la Tabla Cuota ####################################################
+
+############################################### Tabla Alumnos x Cuota ###################################################
+db.define_table('axc',
+		Field('id_alumno', db.alumno, label=T('Alumno')),
+        	Field('id_cuota',db.cuota, label=T('cuota')),
+        	Field('registro', 'datetime',writable=False, readable=False,default=request.now),
+	       )
+############################################# Fin de la Alumno x Cuota ##################################################
