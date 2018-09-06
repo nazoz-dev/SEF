@@ -1,33 +1,110 @@
 {{extend 'layout.html'}}
 <h1>REGISTRAR PAGO</h1>
-
-<form class="form-horizontal" action="{{=URL(c='facturacion', f='cuota')}}" enctype="multipart/form-data" method="POST">
-<div class="form-group">
-            <label for="campo_cliente" class="col-sm-1 control-label">PERIODO</label>
-            <div class="col-sm-2">
-               <select class="form-control" id="campo_cliente" name="id_cliente">
-                  "for reg_cliente in lista_clientes"
-                  <option value="reg_cliente.id_clientereg_cliente.nombre_de_fantasia - reg_cliente.razon_social"</option>
-                  pass
-                </select>
-    </div>
-            <label for="campo_cliente" class="col-sm-1 control-label">CURSO</label>
-            <div class="col-sm-2">
-               <select class="form-control" id="campo_cliente" name="id_cliente">
-                  "for reg_cliente in lista_clientes"
-                  <option value="reg_cliente.id_clientereg_cliente.nombre_de_fantasia - reg_cliente.razon_social"</option>
-                  pass
-                </select>
-            </div>
-            <label for="campo_numero_comprobante" class="col-sm-2 control-label">IMPORTE DE CUOTA</label>
-            <div class="col-sm-2">
-                <input pattern= "[0-9.]+" type="text" class="form-control" name="numero_factura" id="campo_numero_comprobante" required>
-            </div>
+<h1>Selección de alumno/a:</h1>
+<body style="background-color:#87CEEB;">
+    <form class="form-horizontal">
         <div class="form-group">
-        <div class="col-md-3">
-          <input type="submit" name="boton_enviar" class="btn btn-default" value="AGREGAR PRODUCTOS">
+            <div class="col-xs-12 text-center">
+                <table class="table table-bordered" style="background-color:#FFFFFF">
+                    <thead>
+                        <tr>
+                            <th>
+                                <h2><img SRC="http://www.hersis.cl/servicios/servicio_tecnico.png" WIDTH=178 HEIGHT=180></img> Instituto Educativo</h2>
+                            </th>
+                            <th>
+                                <center>
+                                    <h1>Boleta de Pago</h1>
+                                    <h4>N° xxxxx</h4>
+                                    <h4>Fecha: xx/xx/xxxx</h4>
+                                    <h4>CUIT 30-65782398-9</h4>
+                                    <h4>Ing.Brutos Exento</h4>
+                                </center>
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
         </div>
-    </div>
+
+<center>
+
+<center>
+                               <table WIDTH=800 HEIGHT=200 style="background-color:#e0e0e0" >
+                                   <thead>
+                                       <tr>
+                                          <th>
+                                            <div class="row">
+                                              <div class="col-xs-6 col-md-4">MATRICULA</div>
+                                              <div class="col-xs-6 col-md-4">PERIODO</div>  
+                                            </div>
+                                            <div class="row">
+                                              <div class="col-xs-6 col-md-4"><input NAME="matricula"><h4></h4></input></div>
+                                                    <select>
+                                                      <option></option>
+                                                      <option value="1atm">Inscripción</option>
+                                                      <option value="1att">Marzo</option>
+                                                      <option value="1btt">Abril</option>
+                                                      <option value="1att">Mayo</option>
+                                                      <option value="1btt">Junio+Mantenimiento</option>
+                                                      <option value="1att">Julio</option>
+                                                      <option value="1att">Agosto</option>
+                                                      <option value="1att">Septiembre</option>
+                                                      <option value="1att">Octubre+Mantenimiento</option>
+                                                      <option value="1att">Noviembre</option>
+                                                      <option value="1att">Diciembre</option>
+                                                    </select>
+
+                                            </div>
+                                            <div class="row">
+                                              <div class="col-xs-6 col-md-4">Apellido/s</div>
+                                              <div class="col-xs-6 col-md-4">Nombre/s</div>
+                                            </div>
+                                            <div class="row">
+                                              <div class="col-xs-6 col-md-4">
+                                                  <input NAME="apellido"><h4></h4></input>
+                                              </div>
+                                              <div class="col-xs-6 col-md-4">
+                                                  <input NAME="nombre"><h4></h4></input>
+                                              </div>
+                                            </div>
+                                            <div class="row">
+                                              <div class="col-xs-2 col-md-4">Curso</div>
+                                              <div class="col-xs-4 col-md-4">Turno</div>
+                                            </div>
+                                              <div class="col-xs-4 col-md-4">
+                                                    <select>
+                                                      <option></option>
+                                                      <option value="1atm">1°</option>
+                                                      <option value="1att">2°</option>
+                                                      <option value="1btt">3°</option>
+                                                      <option value="1att">4°</option>
+                                                      <option value="1btt">5°</option>
+                                                      <option value="1att">6°</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-xs-4 col-md-4">
+                                                    <select>
+                                                      <option></option>
+                                                      <option value="mañana">Mañana</option>
+                                                      <option value="tarde">Tarde</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </center>
+<br>
 
     </div>
 </form>
+
+            </div>
+        </div>
+
+
+            </form>
+</body>
+
+<center><a href="vista_previa_factura"><input type="submit" name="boton_pagar" class="btn btn-default" value="PAGAR"></center></input></a>

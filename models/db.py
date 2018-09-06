@@ -193,6 +193,7 @@ db.define_table('cuota',
 db.define_table('axc',
 		Field('id_alumno', db.alumno, label=T('Alumno')),
         	Field('id_cuota',db.cuota, label=T('cuota')),
+            #campo de cuota abonada
         	Field('registro', 'datetime',writable=False, readable=False,default=request.now),
 	       )
 ############################################# Fin de la Alumno x Cuota ##################################################
