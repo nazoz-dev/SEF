@@ -154,10 +154,13 @@ db.curso.nivel.requires=IS_IN_SET(['Básico', 'Superior'], zero=T('Elegir una op
 db.define_table('cuota',
                 Field('importe', 'float',label=T('Importe')),
                 Field('mes', 'list:string',label=T('Mes')),
-                Field('mantenimiento', 'float',label=T('Mantenimiento')),
-                Field('ciclo', 'date', label=T('Ciclo Lectivo')),
-                Field('registro', 'datetime',writable=False, readable=False,default=request.now),
+                Field('mantenimiento', 'float',label=T('Mantenimiento'),writable=False, readable=False),
+                Field('ciclo', 'integer', label=T('Ciclo Lectivo')),
+                Field('registro', 'datetime',writable=False, readable=False, default=request.now),
                )
+
+db.cuota.mes.requires=IS_IN_SET(['Inscripción', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre',], zero=T('Elegir una opción'), error_message='Es necesario completar este campo')
+db.cuota.ciclo.requires=[ IS_NOT_EMPTY(error_message="Es necesario completar este campo"), IS_LENGTH(4,error_message="Excedio la cantidad de digitos permitidos para este campo.")]
 
 ############################################# Fin de la Tabla Cuota ####################################################
 
@@ -168,7 +171,7 @@ db.define_table('alumno',
         Field('apellido', 'string',label=T('Apellido')),
         Field('nombre','string',label=T('Nombres')),
         Field('sexo', 'list:string',label=T('Sexo'),),
-        #Field('f_nacimiento', 'date', label=T('Fecha de Nacimiento')),
+        Field('f_nacimiento', 'date', label=T('Fecha de Nacimiento'), default = request.now, requires = IS_DATE(format=('%d/%m/%Y'))),
         Field('localidad','list:string',label=T('Localidad')),
         Field('domicilio', 'string',label=T('Domicilio')),
         Field('telefono', 'integer',label=T('Telefono')),
