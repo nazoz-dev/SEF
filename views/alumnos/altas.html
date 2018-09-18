@@ -3,7 +3,7 @@
 <br></br>
 <form class="form-horizontal">
     <div class="form-group">
-        <div class="col-xs-12 text-center">
+        <div class="col-xs-12 col-md-12">
             <table class="table table-bordered" style="background-color:#FFFFFF">
                 <thead>
                     <tr>
@@ -12,110 +12,22 @@
                             <h1 class="text-left"><center>FORMULARIO DE INSCRIPCIÓN</center></h1>
                             <br>
                             <b><h3><center>DATOS DEL ALUMNO/A</center></h3></b>
-
-                           <center>
-                               <table WIDTH=800 HEIGHT=200 style="background-color:#e0e0e0" >
-                                   <thead>
-                                       <tr>
-                                          <th>
-                                            <div class="row">
-                                              <div class="col-xs-6 col-md-4">DNI</div>
-                                            </div>
-                                            <div class="row">
-                                              <div class="col-xs-6 col-md-4"><input NAME="dni"><h4></h4></input></div>
-                                            </div>
-                                            <div class="row">
-                                              <div class="col-xs-6 col-md-4">Apellido/s</div>
-                                              <div class="col-xs-6 col-md-4">Nombre/s</div>
-                                            </div>
-                                            <div class="row">
-                                              <div class="col-xs-6 col-md-4">
-                                                  <input NAME="apellido"><h4></h4></input>
-                                              </div>
-                                              <div class="col-xs-6 col-md-4">
-                                                  <input NAME="nombre"><h4></h4></input>
-                                              </div>
-                                            </div>
-                                            <div class="row">
-                                              <div class="col-xs-6 col-md-4">Sexo</div>
-                                              <div class="col-xs-6 col-md-4">Fecha de Nacimiento</div>
-                                            </div>
-                               
-                                            <div class="row">
-                                                <div class="col-xs-6 col-md-4">
-                                                    <select>
-                                                      <option></option>
-                                                      <option value="hombre">Hombre</option>
-                                                      <option value="mujer">Mujer</option>
-                                                    </select>
-                                                </div>
-                                                <div class="col-xs-6 col-md-4">
-                                                    <input type="date" NAME="fecha_nac"><h4></h4></input>
-                                                </div>
-                                            </div>
-                    
-                                            <div class="row">
-                                              <div class="col-xs-6 col-md-4">Localidad</div>
-                                              <div class="col-xs-6 col-md-4">Domicilio</div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-xs-6 col-md-4">
-                                                    <select>
-                                                      <option></option>
-                                                      <option value="g_catan">González Catán</option>
-                                                      <option value="v_del_p">Virrey del Pino</option>
-                                                      <option value="ponte">Pontevedra</option>
-                                                      <option value="g_lafe">Gregorio de Laferrere</option>
-                                                      <option value="casanova">Isidro Casanova</option>
-                                                      <option value="eze">Ezeiza</option>
-                                                      <option value="castillo">Rafael Castillo</option>
-                                                      <option value="s_justo">San Justo</option>
-                                                      <option value="merlo">Merlo</option>
-                                                      <option value="moron">Morón</option>
-                                                      <option value="r_mejia">Ramos Mejia</option>
-                                                      <option value="otra">Otra</option>
-                                                    </select>
-                                                </div>
-                                                <div class="col-xs-6 col-md-4">
-                                                  <input NAME="domicilio"><h4></h4></input>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                              <div class="col-xs-6 col-md-4">Teléfono</div>
-                                              <div class="col-xs-2 col-md-4">Curso</div>
-                                              <div class="col-xs-4 col-md-4">Turno</div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-xs-4 col-md-4">
-                                                  <input NAME="telefono"><h4></h4></input>
-                                                </div>
-                                                <div class="col-xs-4 col-md-4">
-                                                    <select>
-                                                      <option></option>
-                                                      <option value="1atm">1°</option>
-                                                      <option value="1att">2°</option>
-                                                      <option value="1btt">3°</option>
-                                                      <option value="1att">4°</option>
-                                                      <option value="1btt">5°</option>
-                                                      <option value="1att">6°</option>
-                                                    </select>
-                                                </div>
-                                                <div class="col-xs-4 col-md-4">
-                                                    <select>
-                                                      <option></option>
-                                                      <option value="mañana">Mañana</option>
-                                                      <option value="tarde">Tarde</option>
-                                                    </select>
-                                                </div>
-                                            </div>
+                            <br>
+                            <div class="col-xs-1 col-md-1"></div>
+                            <div class="col-xs-10 col-md-10">
+                                <table class="table table-bordered" style="background-color:#e0e0e0" >
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <div class="col-xs-10 text-center">{{=formulario}}</div>
+                                                <br>
                                             </th>
                                         </tr>
                                     </thead>
                                 </table>
-                            </center>
-<br>
-                            <center><button type="button" class="btn btn-primary">CONFIRMAR DATOS</button></center>
-<br>
+                                <br></br><br></br>
+                            </div>
+                            <div class="col-xs-1 col-md-1"></div>
                         </th>
                     </tr>
                 </thead>

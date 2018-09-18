@@ -1,6 +1,11 @@
 {{extend 'layout.html'}}
 <h1>VISTA PREVIA: BOLETA DE PAGO</h1>
 <body style="background-color:#87CEEB;">
+    {{=request.vars}}
+    <br>
+{{=dni_seleccionado}}
+    <br>
+{{=curso_seleccionado}}
     <form class="form-horizontal">
         <div class="form-group">
             <div class="col-xs-12 text-center">
@@ -56,6 +61,15 @@
                             <th><h4><b>CONCEPTO</b></h4></th>
                             <th><h4><b>IMPORTE</b></h4></th>
                         </tr>
+                            {{for x, y in zip(dni_seleccionado, curso_seleccionado):}}
+                        <TR>
+                            <TD><BR><CENTER>{{=x.dni}}</CENTER><BR></TD>
+                            <TD><BR><CENTER>{{=x.apellido.capitalize()}} {{=x.nombre.capitalize()}}</CENTER><BR></TD>
+                            <TD><BR><CENTER>{{=y.curso}}</CENTER><BR></TD>
+                            <TD><BR><CENTER>{{=y.nivel}} </CENTER><BR></TD>
+                            <TD><BR><CENTER> </CENTER><BR></TD>
+                        </TR>
+                            {{pass}}
                         <tr>
                             <th><h5>12345678</h5></th>
                             <th><h5>GARRIDO LEANDRO EMANUEL</h5></th>

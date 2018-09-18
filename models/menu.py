@@ -31,9 +31,19 @@ response.google_analytics_id = None
 response.menu = [
     (T('Home'), False, URL('default', 'index'), []),
     (T('Alumnos'), False, None, [
-            (T('Altas'), False, URL('alumnos','altas')),
+            (T('Altas'), False, URL('altas','alumnos')),
             (T('Bajas'), False, URL('alumnos','bajas')),
             (T('Modificaciones'),False, URL('alumnos','modificaciones')),
+        ]),
+    (T('Cursos'), False, None, [
+            (T('Altas'), False, URL('altas','cursos')),
+            (T('Bajas'), False, URL('curso','bajas')),
+            (T('Modificaciones'),False, URL('curso','modificaciones')),
+        ]),
+    (T('Cuotas'), False, None, [
+            (T('Establecer Importe'), False, URL('altas','cuotas')),
+            (T('Establecer Importe Mantenimiento'), False, URL('cuota','bajas')),
+            (T('Establecer Otros Conceptos'),False, URL('cuota','modificaciones')),
         ]),
     (T('Facturacion'), False, URL('facturacion', 'formulario'), []),
         (T('Reportes'), False, None, [
