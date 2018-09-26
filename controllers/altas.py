@@ -24,5 +24,16 @@ def cuotas():
         response.flash='Hay uno o más errores en el formulario'
     return dict(formulario=formulario)
 
-def axc():
+def cxa():
+    formulario=SQLFORM(db.cxa).process()
+    if formulario.accepts(request.vars, session):
+        response.flash='Formulario aceptado'
+    elif formulario.errors:
+        response.flash='Hay uno o más errores en el formulario'
+    return dict(formulario=formulario)
+
+def bucar_mes():
+    return dict()
+
+def mantenimiento():
     return dict()

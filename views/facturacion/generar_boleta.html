@@ -6,6 +6,10 @@
 {{=dni_seleccionado}}
     <br>
 {{=curso_seleccionado}}
+    <br>
+    <br>
+    <br>
+    {{=cuota_seleccionado}}
     <form class="form-horizontal">
         <div class="form-group">
             <div class="col-xs-12 text-center">
@@ -66,8 +70,8 @@
                             <TD><BR><CENTER>{{=x.dni}}</CENTER><BR></TD>
                             <TD><BR><CENTER>{{=x.apellido.capitalize()}} {{=x.nombre.capitalize()}}</CENTER><BR></TD>
                             <TD><BR><CENTER>{{=y.curso}}</CENTER><BR></TD>
-                            <TD><BR><CENTER>{{=y.nivel}} </CENTER><BR></TD>
-                            <TD><BR><CENTER> </CENTER><BR></TD>
+                            <TD><BR><CENTER>Cuota {{=request.now.year}} </CENTER><BR></TD>
+
                         </TR>
                             {{pass}}
                         <tr>

@@ -43,6 +43,7 @@ response.menu = [
     (T('Cuotas'), False, None, [
             (T('Establecer Importe'), False, URL('altas','cuotas')),
             (T('Establecer Importe Mantenimiento'), False, URL('altas','mantenimiento')),
+            (T('Establecer Cuota por Alumno'), False, URL('altas','cxa')),
             (T('Bajas'),False, URL('bajas','cuotas')),
             (T('Modificaciones'),False, URL('modificaciones','cuotas')),
         ]),
