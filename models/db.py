@@ -139,14 +139,15 @@ auth.settings.reset_password_requires_verification = True
 
 db.define_table('curso',
                 Field('curso', 'string',label=T('Curso')),
-                Field('turno', 'string',label=T('Turno')),
                 Field('nivel', 'string',label=T('Nivel')),
+                Field('turno', 'string',label=T('Turno')),
+                Field('division', 'string', writable=False, label=T('Division')),
                 Field('registro', 'datetime',writable=False, readable=False,default=request.now),
                )
 
 db.curso.curso.requires=IS_IN_SET(['1°Año', '2°Año', '3°Año', '4°Año', '5°Año', '6°Año'], zero=T('Elegir una opción'), error_message='Es necesario completar este campo')
+db.curso.nivel.requires=IS_IN_SET(['Primaria', 'Secundaria'], zero=T('Elegir una opción'), error_message='Es necesario completar este campo')
 db.curso.turno.requires=IS_IN_SET(['Mañana', 'Tarde'], zero=T('Elegir una opción'), error_message='Es necesario completar este campo')
-db.curso.nivel.requires=IS_IN_SET(['Básico', 'Superior'], zero=T('Elegir una opción'), error_message='Es necesario completar este campo')
 
 ############################################# Fin de la Tabla Curso ####################################################
 
@@ -154,13 +155,11 @@ db.curso.nivel.requires=IS_IN_SET(['Básico', 'Superior'], zero=T('Elegir una op
 db.define_table('cuota',
                 Field('importe', 'float',label=T('Importe')),
                 Field('mes', 'string',label=T('Mes')),
-                Field('mantenimiento', 'float',label=T('Mantenimiento'),writable=False, readable=False),
+                Field('mantenimiento', 'float',label=T('Mantenimiento')),
+                Field('nivel', 'string',label=T('Nivel Escolar')),
                 Field('ciclo', 'integer', label=T('Ciclo Lectivo')),
                 Field('registro', 'datetime',writable=False, readable=False, default=request.now),
                )
-
-db.cuota.mes.requires=IS_IN_SET(['Inscripción', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre',], zero=T('Elegir una opción'), error_message='Es necesario completar este campo')
-db.cuota.ciclo.requires=[ IS_NOT_EMPTY(error_message="Es necesario completar este campo"), IS_LENGTH(4,error_message="Excedio la cantidad de digitos permitidos para este campo.")]
 
 ############################################# Fin de la Tabla Cuota ####################################################
 
@@ -175,7 +174,7 @@ db.define_table('alumno',
         Field('localidad','string',label=T('Localidad')),
         Field('domicilio', 'string',label=T('Domicilio')),
         Field('telefono', 'integer',label=T('Telefono')),
-        Field('curso', db.curso ,label=T('Curso y Turno')),
+        Field('curso', db.curso ,label=T('Curso, División, Turno y Nivel')),
         Field('registro', 'datetime',writable=False, readable=False,default=request.now),)
 
 db.alumno.dni.requires=[ IS_NOT_IN_DB(db,db.alumno.dni, error_message="El campo esta incompleto o ya esta en la base de datos."), IS_LENGTH(8,error_message="Excedio la cantidad de digitos permitidos para este campo.")]
@@ -185,7 +184,7 @@ db.alumno.sexo.requires=IS_IN_SET(["Masculino", "Femenino"], zero=T('Elegir una 
 db.alumno.localidad.requires=IS_IN_SET(['González Catán','Virrey del Pino', 'Pontevedra', 'Gregorio de Laferrere', 'Isidro Casanova','Rafael Castillo','San Justo','Ciudad Evita','Morón','Merlo','Ramos Mejía','Otro'], zero=T('Elegir una opción'), error_message="Es necesario completar este campo")
 db.alumno.domicilio.requires=[IS_LOWER(), IS_NOT_EMPTY(error_message="Es necesario completar este campo")]
 db.alumno.telefono.requires=[ IS_NOT_EMPTY(error_message="Es necesario completar este campo"), IS_LENGTH(10,error_message="Excedio la cantidad de digitos permitidos para este campo.")]
-db.alumno.curso.requires=IS_IN_DB(db,'curso.id', '%(curso)s %(turno)s', zero=T("Elegir una opción"), error_message="Es necesario completar este campo")
+db.alumno.curso.requires=IS_IN_DB(db,'curso.id', '%(curso)s - %(division)s - %(turno)s - %(nivel)s', zero=T("Elegir una opción"), error_message="Es necesario completar este campo")
 
 ########################################## Fin de la Tabla Alumnos ######################################################
 

@@ -29,27 +29,29 @@ response.google_analytics_id = None
 # ----------------------------------------------------------------------------------------------------------------------
 
 response.menu = [
-    (T('Home'), False, URL('default', 'index'), []),
+    (T('Home'), False, URL('default', 'index'), [])]
+
+response.menu +=[
     (T('Alumnos'), False, None, [
-            (T('Altas'), False, URL('altas','alumnos')),
-            (T('Bajas'), False, URL('bajas','alumnos')),
-            (T('Modificaciones'),False, URL('modificaciones','alumnos')),
+            (T('Altas'), False, URL('altas','alumnos'),[]),
+            (T('Bajas'), False, URL('bajas','buscar_dni'),[]),
+            (T('Modificaciones'),False, URL('modificaciones','buscar_dni'),[]),
         ]),
     (T('Cursos'), False, None, [
             (T('Altas'), False, URL('altas','cursos')),
-            (T('Bajas'), False, URL('bajas','cursos')),
-            (T('Modificaciones'),False, URL('modificaciones','cursos')),
+            (T('Bajas'), False, URL('bajas','buscar_nivel_turno')),
+            (T('Modificaciones'),False, URL('modificaciones','buscar_nivel_turno')),
         ]),
+    (T('Mas Cursos'), False, URL('altas','mas_cursos'),[]),
     (T('Cuotas'), False, None, [
-            (T('Establecer Importe'), False, URL('altas','cuotas')),
-            (T('Establecer Importe Mantenimiento'), False, URL('altas','mantenimiento')),
-            (T('Establecer Cuota por Alumno'), False, URL('altas','cxa')),
-            (T('Bajas'),False, URL('bajas','cuotas')),
-            (T('Modificaciones'),False, URL('modificaciones','cuotas')),
+            (T('Altas'), False, URL('altas', 'cuotas'),[]),
+            (T('Bajas'),False, URL('bajas','buscar_ciclo')),
+            (T('Modificaciones'),False, URL('modificaciones','buscar_ciclo')),
         ]),
+    (T('Cuota por Alumno'), False, URL('altas','cxa'),[]),
     (T('Facturacion'), False, URL('facturacion', 'buscar_dni'), []),
     (T('Reportes'), False, None, [
-            (T('A'), False, ''),
+            (T('Listar Cuotas'), False, URL('reportes','buscar_ciclo')),
             (T('B'), False, ''),
             (T('C'), False, ''),
         ]),
