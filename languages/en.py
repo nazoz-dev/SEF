@@ -132,6 +132,7 @@
 'new record inserted': 'new record inserted',
 'next %s rows': 'next %s rows',
 'Nivel': 'Nivel',
+'Nivel Escolar': 'Nivel Escolar',
 'No databases in this application': 'No databases in this application',
 'Nombres': 'Nombres',
 'Number of entries: **%s**': 'Number of entries: **%s**',
