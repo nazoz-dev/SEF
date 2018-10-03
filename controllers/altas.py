@@ -125,7 +125,7 @@ def cuotas():
 def lista_cuotas():
     ciclo = request.vars.ciclo
     nivel= request.vars.nivel
-    reg = db((ciclo == db.cuota.ciclo) & (db.cuota.nivel==nivel)).select(db.cuota.ALL) # mediante una consulta a la db obtiene un reg con los datos del usuario seleccionado
+    reg = db((ciclo == db.cuota.ciclo) & (db.cuota.nivel==nivel)).select(db.cuota.ALL) #mediante una consulta a la db obtiene un reg con los datos del usuario seleccionado
     return dict(reg=reg, nivel=nivel)
 
 
