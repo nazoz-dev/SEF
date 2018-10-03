@@ -74,12 +74,54 @@ def mas_cursos():
 
 
 def cuotas():
-    formulario=SQLFORM(db.cuota).process()
+    inscripcion='Inscripción'
+    mes=['Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre',]
+    no_mantenimiento=0
+    registro= request.now
+    formulario= SQLFORM.factory(
+        Field('importe_inscripcion', 'float',label=T('Importe Inscripción'),requires=IS_NOT_EMPTY(error_message="Es necesario completar este campo")),
+        Field('importe_mensual', 'float',label=T('Importe Mensual'),requires=IS_NOT_EMPTY(error_message="Es necesario completar este campo")),
+        Field('importe_mantenimiento', 'float',label=T('Importe Mantenimiento'),requires=IS_NOT_EMPTY(error_message="Es necesario completar este campo")),
+        Field('mantenimiento_mes_a', 'string',label=T('1° Mes de Mantenimiento'),requires=IS_IN_SET(['Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre',], zero=T('Elegir una opción'), error_message='Es necesario completar este campo')),
+        Field('mantenimiento_mes_b', 'string',label=T('2° Mes de Mantenimiento'),requires=IS_IN_SET(['Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre',], zero=T('Elegir una opción'), error_message='Es necesario completar este campo')),
+        Field('nivel', 'string',label=T('Nivel Escolar'),requires=IS_IN_SET(['Primaria', 'Secundaria'], zero=T('Elegir una opción'), error_message='Es necesario completar este campo')),
+        Field('ciclo', 'integer', label=T('Ciclo Electivo'), requires=[IS_NOT_EMPTY(error_message="Es necesario completar este campo"), IS_LENGTH(4,error_message="Excedio la cantidad de digitos permitidos para este campo.")]))
     if formulario.accepts(request.vars, session):
-        response.flash='Formulario aceptado'
+        if formulario.vars.mantenimiento_mes_a == formulario.vars.mantenimiento_mes_b:
+            formulario.errors.mantenimiento_mes_a = 'El mes para la cuota de mantenimiento ya fue seleccionado'
+            formulario.errors.mantenimiento_mes_b = 'El mes para la cuota de mantenimiento ya fue seleccionado'
+        else:
+            importe_inscripcion= formulario.vars.importe_inscripcion
+            importe_mensual= formulario.vars.importe_mensual
+            importe_mantenimiento= formulario.vars.importe_mantenimiento
+            mantenimiento_mes_a= formulario.vars.mantenimiento_mes_a
+            mantenimiento_mes_b= formulario.vars.mantenimiento_mes_b
+            nivel=formulario.vars.nivel
+            ciclo = formulario.vars.ciclo
+            # INGRESANDO REGISTRO DE INSCRIPCION
+            consulta_inscripcion = (db.cuota.mes == inscripcion) & (db.cuota.nivel == nivel) & (db.cuota.ciclo == ciclo)
+            fila_inscripcion = db(consulta_inscripcion).select()
+            if not fila_inscripcion: #no estas vacia
+                # insertar registros:
+                db.cuota.insert(importe=importe_inscripcion, mes=inscripcion, mantenimiento=no_mantenimiento, nivel=nivel, ciclo=ciclo, registro=registro)
+            # FIN DEL INGRESO DE REGISTRO DE INSCRIPCION
+            for x in mes:
+                # INGRESANDO REGISTRO DE CUOTA MENSUAL
+                consulta_mensual = (db.cuota.mes == x) & (db.cuota.nivel == nivel) & (db.cuota.ciclo == ciclo)
+                fila_mensual = db(consulta_mensual).select()
+                if not fila_mensual:
+                    # insertar registros:
+                    if mantenimiento_mes_a==x or mantenimiento_mes_b==x:
+                        db.cuota.insert(importe=importe_mensual, mes=x, mantenimiento=importe_mantenimiento, nivel=nivel, ciclo=ciclo, registro=registro) # ingresa registro con mantenimiento
+                    else:
+                        db.cuota.insert(importe=importe_mensual, mes=x, mantenimiento=no_mantenimiento, nivel=nivel, ciclo=ciclo, registro=registro) # ingresa registro sin mantenimiento
+                # FIN DEL INGRESO DE REGISTRO DE cuota mensual
+            redirect(URL('lista_cuotas',args=(),vars=dict(ciclo=ciclo, nivel=nivel)))
+            response.flash='Formulario aceptado'
     elif formulario.errors:
         response.flash='Hay uno o más errores en el formulario'
     return dict(formulario=formulario)
+
 
 def cxa():
     formulario=SQLFORM(db.cxa).process()
