@@ -136,9 +136,3 @@ def cxa():
     elif formulario.errors:
         response.flash='Hay uno o más errores en el formulario'
     return dict(formulario=formulario)
-
-def bucar_mes():
-    return dict()
-
-def mantenimiento():
-    return dict()
