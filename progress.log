@@ -790,3 +790,14 @@
 [2018-09-26 20:46:28] EDIT SEF/models/db.py: 0
 [2018-09-26 20:47:17] EDIT SEF/models/db.py: -2
 [2018-09-26 20:47:53] EDIT SEF/models/db.py: 0
+[2018-10-06 19:38:08] EDIT SEF/views/altas/alumnos.html: 0
+[2018-10-06 19:38:29] EDIT SEF/views/altas/alumnos.html: 0
+[2018-10-06 19:39:24] EDIT SEF/views/altas/cuotas.html: 0
+[2018-10-06 19:39:50] EDIT SEF/views/altas/cursos.html: 0
+[2018-10-06 19:40:20] EDIT SEF/views/altas/cxa.html: 0
+[2018-10-06 19:40:53] DELETE SEF/views/altas/mantenimiento.html: -3
+[2018-10-06 19:41:41] CREATE altas/lista_cuotas.html: 0
+[2018-10-06 19:42:03] CREATE altas/mas_cursos.html: 0
+[2018-10-06 19:42:44] EDIT SEF/views/altas/lista_cuotas.html: 64
+[2018-10-06 19:43:03] EDIT SEF/views/altas/mas_cursos.html: 35
+[2018-10-06 19:44:21] EDIT SEF/models/menu.py: 0
