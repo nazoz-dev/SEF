@@ -1,0 +1,64 @@
+{{extend 'layout.html'}}
+<body style="background-color:#87CEEB;">
+<br></br>
+<form class="form-horizontal">
+    <div class="form-group">
+        <div class="col-xs-12 col-md-12">
+            <table class="table table-bordered" style="background-color:#FFFFFF">
+                <thead>
+                    <tr>
+                        <th>
+                            <h4><center><img SRC="http://www.hersis.cl/servicios/servicio_tecnico.png" WIDTH=178 HEIGHT=180></img></center></h4>
+                            <h1 class="text-left"><center>MODIFICACIÓN DE CURSOS</center></h1>
+                            <br>
+                            <b><h3><center>LISTA CURSOS</center></h3></b>
+                            <br>
+                            <div class="col-xs-1 col-md-2"></div>
+                            <div class="col-xs-10 col-md-8">
+                                <table class="table table-bordered" style="background-color:#e0e0e0" >
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <div class="col-xs-12 text-center">
+                                                    <br>
+                                                    <table class="table table-striped" border="2" >
+                                                      <thead style="background-color:#5D98C3">
+                                                        <tr>
+                                                          <th scope="col"><center><h1>Curso</h1></center></th>
+                                                          <th scope="col"><center><h1>Acción</h1></center></th>
+                                                        </tr>
+                                                      </thead>
+                                                      <tbody>
+                                                          {{for x in cursos:}}
+                                                          <tr>
+                                                            <TD>
+                                                                <CENTER><h3>{{=x.curso }} {{=x.division}} {{=x.turno}} - {{=x.nivel}}</h3></CENTER>
+                                                            </TD>
+                                                            <TD>
+                                                                <CENTER><h3>{{=A('Eliminar',_href=URL(r=request, f='cursos', args=[x.id]) )}}</h3></CENTER>
+                                                            </TD>
+                                                          </TR>
+                                                          {{pass}}
+                                                      </tbody>
+                                                    </table>
+                                                </div>
+                                                <br>
+                                                <div class="col-xs-12 col-md-12">
+                                                    <center><a class="btn btn-primary" href="buscar_nivel_turno" role="button">Volver</a></center>
+                                                </div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                                <br></br><br></br>
+                            </div>
+                            <div class="col-xs-1 col-md-2"></div>
+                        </th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</form>
+
+<br>
