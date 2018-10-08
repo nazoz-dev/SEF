@@ -1,61 +1,39 @@
 {{extend 'layout.html'}}
-<h1>REGISTRAR PAGO</h1>
-<h1>Selección de alumno/a:</h1>
 <body style="background-color:#87CEEB;">
-    <form class="form-horizontal">
-        <div class="form-group">
-            <div class="col-xs-12 text-center">
-                <table class="table table-bordered" style="background-color:#FFFFFF">
-                    <thead>
-                        <tr>
-                            <th>
-                                <h2><img SRC="http://www.hersis.cl/servicios/servicio_tecnico.png" WIDTH=178 HEIGHT=180></img> Instituto Educativo</h2>
-                            </th>
-                            <th>
-                                <center>
-                                    <h1>Boleta de Pago</h1>
-                                    <h4>N° xxxxx</h4>
-                                    <h4>Fecha: xx/xx/xxxx</h4>
-                                    <h4>CUIT 30-65782398-9</h4>
-                                    <h4>Ing.Brutos Exento</h4>
-                                </center>
-                            </th>
-                        </tr>
-                    </thead>
-                </table>
-            </div>
-        </div>
-        <center>
-            <table WIDTH=800 HEIGHT=200 style="background-color:#e0e0e0" >
+<br></br>
+<form class="form-horizontal">
+    <div class="form-group">
+        <div class="col-xs-12 col-md-12">
+            <table class="table table-bordered" style="background-color:#FFFFFF">
                 <thead>
                     <tr>
                         <th>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <center>INGRESAR MATRICULA</center>
-                                </div>
+                            <h4><center><img SRC="http://www.hersis.cl/servicios/servicio_tecnico.png" WIDTH=178 HEIGHT=180></img></center></h4>
+                            <h1 class="text-left"><center>GENERAR BOLETA DE PAGO</center></h1>
+                            <br>
+                            <b><h3><center>INGRESE EL DNI DEL ALUMNO/A</center></h3></b>
+                            <br>
+                            <div class="col-xs-1 col-md-1"></div>
+                            <div class="col-xs-10 col-md-10">
+                                <table class="table table-bordered" style="background-color:#e0e0e0" >
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <div class="col-xs-10 text-center">{{=formulario}}</div>
+                                                <br>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                                <br></br><br></br>
                             </div>
-                            
-                            
+                            <div class="col-xs-1 col-md-1"></div>
                         </th>
                     </tr>
                 </thead>
             </table>
-        </center>
-    </form>
-</body>
-
-
+        </div>
+    </div>
+</form>
 <br>
-
-                                              <form action="generar_boleta" method="post">
-                                                <center>
-                                                    <div>
-                                                        <label for="dni">DNI:</label>
-                                                        <input type="text" id="dni" name="dni" />
-                                                    </div>
-                                                    <div class="button">
-                                                        <button type="submit">Buscar</button>
-                                                    </div>
-                                                </center>
                                               </form>

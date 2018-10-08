@@ -821,3 +821,7 @@
 [2018-10-07 21:39:05] EDIT SEF/views/bajas/lista_cuotas.html: 67
 [2018-10-07 21:39:50] CREATE bajas/lista_cursos.html: 0
 [2018-10-07 21:40:12] EDIT SEF/views/bajas/lista_cursos.html: 60
+[2018-10-07 21:49:22] EDIT SEF/controllers/facturacion.py: 8
+[2018-10-07 21:51:43] EDIT SEF/views/facturacion/buscar_dni.html: -17
+[2018-10-07 21:52:26] EDIT SEF/views/facturacion/generar_boleta.html: 0
+[2018-10-07 21:53:11] EDIT SEF/views/facturacion/generar_recibo.html: 0
