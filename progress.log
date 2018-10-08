@@ -842,3 +842,8 @@
 [2018-10-07 22:06:01] EDIT SEF/views/modificaciones/lista_cuotas.html: 67
 [2018-10-07 22:06:33] CREATE modificaciones/lista_cursos.html: 0
 [2018-10-07 22:06:52] EDIT SEF/views/modificaciones/lista_cursos.html: 60
+[2018-10-07 22:10:43] EDIT SEF/controllers/reportes.py: 14
+[2018-10-07 22:12:16] CREATE reportes/buscar_ciclo.html: 0
+[2018-10-07 22:12:47] CREATE reportes/lista_cuotas.html: 0
+[2018-10-07 22:13:10] EDIT SEF/views/reportes/buscar_ciclo.html: 35
+[2018-10-07 22:13:31] EDIT SEF/views/reportes/lista_cuotas.html: 67
