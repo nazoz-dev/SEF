@@ -130,9 +130,35 @@ def lista_cuotas():
 
 
 def cxa():
-    formulario=SQLFORM(db.cxa).process()
-    if formulario.accepts(request.vars, session):
-        response.flash='Formulario aceptado'
-    elif formulario.errors:
-        response.flash='Hay uno o más errores en el formulario'
-    return dict(formulario=formulario)
+    curso_alumno=''
+    ciclo=2010
+    estado='Pendiente'
+    registro= request.now
+    reg_alumnos = db(db.alumno).select()
+    for alumno in reg_alumnos:
+        filtro_nivel = alumno.curso==db.curso.id
+        consulta = db(filtro_nivel).select()
+        for x in consulta:
+            curso_alumno=x.nivel
+            if curso_alumno=='Primaria':
+                #pasa algo
+                q=(db.cuota.nivel=='Primaria') & (db.cuota.ciclo==ciclo)
+                reg_cuotas=db(q).select()
+                for cuota in reg_cuotas:
+                    q = (db.cxa.id_alumno == alumno.id) & (db.cxa.id_cuota == cuota.id)
+                    fila = db(q).select()
+                    if not fila:
+                        # insertar registros:
+                        db.cxa.insert(id_alumno=alumno.id, id_cuota=cuota.id, estado=estado, registro=registro)
+            else:
+                #pasa otra cosa
+                q=(db.cuota.nivel=='Secundaria') & (db.cuota.ciclo==ciclo)
+                reg_cuotas=db(q).select()
+                for cuota in reg_cuotas:
+                    q = (db.cxa.id_alumno == alumno.id) & (db.cxa.id_cuota == cuota.id)
+                    fila = db(q).select()
+                    if not fila:
+                        # insertar registros:
+                        db.cxa.insert(id_alumno=alumno.id, id_cuota=cuota.id, estado=estado, registro=registro)
+    filas = db((db.cxa.id_alumno == db.alumno.id) & (db.cxa.id_cuota == db.cuota.id)).select()
+    return dict(formulario=filas)
