@@ -849,3 +849,5 @@
 [2018-10-07 22:13:31] EDIT SEF/views/reportes/lista_cuotas.html: 67
 [2018-10-10 08:24:49] DELETE SEF/views/bajas/eliminar_cursos.html: -3
 [2018-10-10 10:31:11] EDIT SEF/controllers/altas.py: 26
+[2018-10-26 20:32:52] EDIT SEF/views/default/index.html: -5
+[2018-10-26 20:32:54] EDIT SEF/views/default/index.html: 0
