@@ -1,51 +1,49 @@
-{{left_sidebar_enabled,right_sidebar_enabled=False,('message' in globals())}}
 {{extend 'layout.html'}}
-<html>
-<BODY style="background-color:#BEBEBE;">
-{{block header}}
-       <header class="container-fluid background">
+<body style="background-color:#87CEEB;">
+<br></br>
+<form class="form-horizontal">
+    <div class="form-group">
+        <div class="col-xs-12 col-md-12">
+            <table class="table table-bordered" style="background-color:#FFFFFF">
+                <thead>
+                    <tr>
+                        <th>
+                            <h4><center><img SRC="http://www.hersis.cl/servicios/servicio_tecnico.png" WIDTH=178 HEIGHT=180></img></center></h4>
+                            <h1 class="text-left"><center>FORMULARIO DE INSCRIPCIÓN</center></h1>
+                            <br>
+                            <b><h3><center>DATOS DEL ALUMNO/A</center></h3></b>
+                            <br>
+                            <div class="col-xs-1 col-md-1"></div>
+                            <div class="col-xs-10 col-md-10">
+                                <table class="table table-bordered" style="background-color:#e0e0e0" >
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <div class="col-xs-10 text-center">
+                                                    <U><p class="lead">{{=T('Usuarios que pueden ingresar al sistema')}}</p></U>
+                                                    <ol>
+                                                      <UL><B><I>Auxiliar administrativo</B></I><BR> {{=T('Son quienes ingresan los datos de los alumnos/as e imprimen las boletas de pago que soliciten o el sistema registre como pendiente a pagar.')}}</UL>
+                                                          <BR>
+                                                      <UL><B><I>Tutor del alumno/a</B></I><BR>  {{=T('Puede registrarse y acceder para realizar los pagos de forma online.')}}</UL>
+                                                          <BR>
+                                                      <UL><B><I>Administrador</B></I><BR>  {{=T('Encargados de la configuración del sistema, determinar valores de cuotas, conceptos, meses de pago.')}}</UL>
+                                                          <BR>
+                                                    </ol>
+                                                </div>
+                                                <br>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                                <br></br><br></br>
+                            </div>
+                            <div class="col-xs-1 col-md-1"></div>
+                        </th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</form>
 
-<div class="jumbotron text-center">
-        {{if response.title:}}
-        <h1>{{=response.title}}
-          <small>{{=response.subtitle or ''}}</small></h1>
-        {{pass}}
-      </div>
-        </header> 
-{{end}}
-
-{{block right_sidebar}}
-<div class="panel panel-info">
-  <div class="panel-heading"><h3 class="panel-title"><a class="btn-block"
-      href="{{=URL('default','index')}}">
-      <i class="glyphicon glyphicon-cog"></i>
-      {{=T("SEF")}}
-    </a></h3></div>
-  <div class="panel-body">
-    <B>{{=T("INGRESO A SEF")}}</B>
-  </div>
-  <ul class="list-group">
-    <li class="list-group-item">{{=T('Si ya es usuario: ')}}{{=A(T("Ingresar"), _href=URL('default','user/login'))}}</li>
-    <li class="list-group-item">{{=T('Si aún no es usuario: ')}}{{=A(T("Registrarse"), _href=URL('default','user/register'))}}</li>
-  </ul>
-</div>
-{{end}}
-
-
-{{if not auth.user:}}
-{{right_sidebar_enabled=True}}
-<hr/>
-<h2><font color="#111f11"><center>{{=message}}</center></font></h2>
-
-
-<U><p class="lead">{{=T('Usuarios que pueden ingresar al sistema')}}</p></U>
-<ol>
-  <UL><B><I>Auxiliar administrativo</B></I><BR> {{=T('Son quienes ingresan los datos de los alumnos/as e imprimen las boletas de pago que soliciten o el sistema registre como pendiente a pagar.')}}</UL>
-      <BR>
-  <UL><B><I>Tutor del alumno/a</B></I><BR>  {{=T('Puede registrarse y acceder para realizar los pagos de forma online.')}}</UL>
-      <BR>
-  <UL><B><I>Administrador</B></I><BR>  {{=T('Encargados de la configuración del sistema, determinar valores de cuotas, conceptos, meses de pago.')}}</UL>
-      <BR>
-</ol>
-
-{{pass}}
+<br>
