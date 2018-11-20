@@ -131,7 +131,7 @@ def lista_cuotas():
 
 def cxa():
     curso_alumno=''
-    ciclo=2010
+    ciclo=request.now.year
     estado='Pendiente'
     registro= request.now
     reg_alumnos = db(db.alumno).select()
