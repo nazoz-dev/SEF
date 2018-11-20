@@ -22,6 +22,17 @@ def generar_boleta():
         curso=x.curso #guarda el id del curso seleccionao en una variable
         curso_seleccionado= db(curso == db.curso.id).select(db.curso.ALL)
         id_alumno_seleccionado= x.id
+        q=(db.cxa.id_alumno==id_alumno_seleccionado) & (db.cxa.id_cuota==db.cuota.id)
+        cuotas_seleccionado= db(q).select()
+        validador=(db.cxa.id_alumno==id_alumno_seleccionado) & (db.cxa.id_cuota==db.cuota.id) & (db.cxa.estado=="Pendiente")
+        #db.cuotas_seleccionado.cxa.estado=="Pendiente"
+        cuota_pendiente=db(validador).select()
+        for w in cuota_pendiente:
+            mes=w.cuota.mes
+            importe=w.cuota.importe
+            mantenimiento=w.cuota.mantenimiento
+            total_importe=importe+mantenimiento
+            break
         #cuotas= db(db.cxa.id_alumno==id_alumno_seleccionado).select(db.cxa.ALL)
         #for y in cuotas:
          #   estado=y.estado
@@ -30,7 +41,7 @@ def generar_boleta():
             #else:
              #   break
         #cuota_seleccionado=db((db.cxa.id_alumno==id_alumno_seleccionado) & (db.cxa.id_cuota==cuotaid)).select()
-    return dict(dni_seleccionado=dni_seleccionado, curso_seleccionado=curso_seleccionado, cuota_seleccionado=cuotaid, cuotaid=cuotaid)
+    return dict(dni_seleccionado=dni_seleccionado, curso_seleccionado=curso_seleccionado, cuotas_seleccionado=cuotas_seleccionado, mantenimiento=mantenimiento, importe=importe, mes=mes, total_importe=total_importe)
 #lista alumnos por un lado y cuotas por otro, de ahi realiza una consulta para que el id del dni que se ingreso sea igual al del alumno y con el id del alumno y las cuotas realizar un for con consulta para saber cual esta en True 
 
 def generar_recibo():

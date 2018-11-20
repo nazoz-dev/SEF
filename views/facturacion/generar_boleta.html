@@ -3,13 +3,21 @@
 <body style="background-color:#87CEEB;">
     {{=request.vars}}
     <br>
+    mes: {{=request.now.month}}
+    <br>
 {{=dni_seleccionado}}
     <br>
 {{=curso_seleccionado}}
     <br>
+{{=cuotas_seleccionado}}
     <br>
+{{=importe}}
     <br>
-    {{=cuota_seleccionado}}
+{{=mantenimiento}}
+    <br>
+{{=mes}}
+    <br>
+{{=total_importe}}
     <form class="form-horizontal">
         <div class="form-group">
             <div class="col-xs-12 text-center">
@@ -65,29 +73,23 @@
                             <th><h4><b>CONCEPTO</b></h4></th>
                             <th><h4><b>IMPORTE</b></h4></th>
                         </tr>
-                            {{for x, y in zip(dni_seleccionado, curso_seleccionado):}}
+                            {{for x, y, z in zip(dni_seleccionado, curso_seleccionado, cuotas_seleccionado):}}
                         <TR>
-                            <TD><BR><CENTER>{{=x.dni}}</CENTER><BR></TD>
-                            <TD><BR><CENTER>{{=x.apellido.capitalize()}} {{=x.nombre.capitalize()}}</CENTER><BR></TD>
-                            <TD><BR><CENTER>{{=y.curso}}</CENTER><BR></TD>
-                            <TD><BR><CENTER>Cuota {{=request.now.year}} </CENTER><BR></TD>
+                            <TD class="text-right"><BR>{{=x.dni}}</CENTER><BR></TD>
+                            <TD class="text-right"><BR>{{=x.apellido.capitalize()}} {{=x.nombre.capitalize()}}</CENTER><BR></TD>
+                            <TD class="text-right"><BR>{{=y.curso}} {{=y.division}} - Turno {{=y.turno}} - {{=y.nivel}}</CENTER><BR></TD>
+                            <TD class="text-right"><BR>Cuota {{=mes}} {{=z.cuota.ciclo}} </CENTER><BR></TD>
+                            <TD class="text-right"><BR>${{=importe}}<BR></TD>
+                        </TR>
 
+                        <TR>
+                            <TD class="text-right"><BR>{{=x.dni}}</CENTER><BR></TD>
+                            <TD class="text-right"><BR>{{=x.apellido.capitalize()}} {{=x.nombre.capitalize()}}</CENTER><BR></TD>
+                            <TD class="text-right"><BR>{{=y.curso}} {{=y.division}} - Turno {{=y.turno}} - {{=y.nivel}}</CENTER><BR></TD>
+                            <TD class="text-right"><BR>Cuota Mantenimiento {{=z.cuota.ciclo}} </CENTER><BR></TD>
+                            <TD class="text-right"><BR>${{=mantenimiento}}<BR></TD>
                         </TR>
                             {{pass}}
-                        <tr>
-                            <th><h5>12345678</h5></th>
-                            <th><h5>GARRIDO LEANDRO EMANUEL</h5></th>
-                            <th><h5>5°Año Sociales</h5></th>
-                            <th><h5>Cuota Junio 2018</h5></th>
-                            <th class=" text-right "><h5>2900,00</h5></th>
-                        </tr>
-                        <tr>
-                            <th><h5>12345678</h5></th>
-                            <th><h5>GARRIDO LEANDRO EMANUEL</h5></th>
-                            <th><h5>5°Año Sociales</h5></th>
-                            <th><h5>Cuota 1° Manteniiento Junio 2018</h5></th>
-                            <th class=" text-right "><h5>1400,00</h5></th>
-                        </tr>
                     </thead>
                 </table>
             </div>
@@ -104,7 +106,7 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class=" text-right "><h4>$4500,00</h4></td>
+                            <td class=" text-right "><h4>${{=total_importe}}</h4></td>
                         </tr>
                     </tbody>
                 </table>

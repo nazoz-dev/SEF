@@ -880,3 +880,10 @@
 [2018-11-12 15:36:58] EDIT SEF/views/default/index.html: -2
 [2018-11-12 15:40:11] EDIT SEF/views/default/index.html: 0
 [2018-11-19 22:14:12] EDIT SEF/controllers/altas.py: 0
+[2018-11-20 02:45:28] EDIT SEF/controllers/facturacion.py: 11
+[2018-11-20 02:46:31] EDIT SEF/views/facturacion/generar_boleta.html: 0
+[2018-11-20 02:46:41] EDIT SEF/views/facturacion/generar_boleta.html: 0
+[2018-11-20 02:47:21] EDIT SEF/views/facturacion/generar_boleta.html: 0
+[2018-11-20 02:49:13] EDIT SEF/controllers/altas.py: 0
+[2018-11-20 02:50:12] EDIT SEF/views/facturacion/generar_boleta.html: 2
+[2018-11-20 02:50:28] EDIT SEF/views/facturacion/generar_boleta.html: 0
