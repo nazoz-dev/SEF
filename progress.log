@@ -887,3 +887,11 @@
 [2018-11-20 02:49:13] EDIT SEF/controllers/altas.py: 0
 [2018-11-20 02:50:12] EDIT SEF/views/facturacion/generar_boleta.html: 2
 [2018-11-20 02:50:28] EDIT SEF/views/facturacion/generar_boleta.html: 0
+[2018-11-21 06:43:44] EDIT SEF/controllers/mercadopago.py: 2
+[2018-11-21 06:45:08] EDIT SEF/controllers/facturacion.py: 1
+[2018-11-21 06:45:35] EDIT SEF/controllers/facturacion.py: 1
+[2018-11-21 06:45:56] EDIT SEF/views/facturacion/generar_boleta.html: 0
+[2018-11-21 06:46:27] EDIT SEF/views/facturacion/generar_boleta.html: 4
+[2018-11-21 06:47:30] EDIT SEF/controllers/facturacion.py: 1
+[2018-11-21 06:49:03] EDIT SEF/controllers/mercadopago.py: 0
+[2018-11-21 06:50:17] EDIT SEF/controllers/mercadopago.py: 0
