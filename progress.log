@@ -901,3 +901,7 @@
 [2018-11-22 20:42:49] EDIT SEF/models/menu_admin.py: 44
 [2018-11-22 20:43:17] EDIT SEF/models/menu_auxiliar.py: 34
 [2018-11-22 20:43:52] EDIT SEF/models/menu.py: -22
+[2018-11-22 20:46:14] CREATE layout_admin.html: 0
+[2018-11-22 20:46:38] CREATE layout_auxiliar.html: 0
+[2018-11-22 20:47:36] EDIT SEF/views/layout_admin.html: 124
+[2018-11-22 20:47:52] EDIT SEF/views/layout_auxiliar.html: 124
