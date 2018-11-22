@@ -895,3 +895,9 @@
 [2018-11-21 06:47:30] EDIT SEF/controllers/facturacion.py: 1
 [2018-11-21 06:49:03] EDIT SEF/controllers/mercadopago.py: 0
 [2018-11-21 06:50:17] EDIT SEF/controllers/mercadopago.py: 0
+[2018-11-21 10:25:15] EDIT SEF/controllers/mercadopago.py: 0
+[2018-11-22 20:41:59] CREATE menu_admin.py: 0
+[2018-11-22 20:42:13] CREATE menu_auxiliar.py: 0
+[2018-11-22 20:42:49] EDIT SEF/models/menu_admin.py: 44
+[2018-11-22 20:43:17] EDIT SEF/models/menu_auxiliar.py: 34
+[2018-11-22 20:43:52] EDIT SEF/models/menu.py: -22
