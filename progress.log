@@ -905,3 +905,12 @@
 [2018-11-22 20:46:38] CREATE layout_auxiliar.html: 0
 [2018-11-22 20:47:36] EDIT SEF/views/layout_admin.html: 124
 [2018-11-22 20:47:52] EDIT SEF/views/layout_auxiliar.html: 124
+[2018-11-22 21:16:00] EDIT SEF/controllers/default.py: 4
+[2018-11-22 21:16:20] EDIT SEF/controllers/default.py: 6
+[2018-11-22 21:18:15] EDIT SEF/controllers/default.py: 0
+[2018-11-22 21:19:17] CREATE default/principal_admin.html: 0
+[2018-11-22 21:19:31] CREATE default/principal_auxiliar.html: 0
+[2018-11-22 21:20:28] EDIT SEF/views/default/principal_admin.html: 35
+[2018-11-22 21:21:16] EDIT SEF/views/default/principal_auxiliar.html: 35
+[2018-11-22 21:23:38] EDIT SEF/models/db.py: 32
+[2018-11-22 21:25:55] EDIT SEF/models/menu_admin.py: 4

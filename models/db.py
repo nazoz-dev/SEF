@@ -90,24 +90,65 @@ plugins = PluginManager()
 # -------------------------------------------------------------------------
 # create all tables needed by auth if not custom tables
 # -------------------------------------------------------------------------
-auth.define_tables(username=False, signature=False)
+
+db.define_table(
+    auth.settings.table_user_name,
+    Field('dni', 'integer', length=8, label=T('DNI')),
+    Field('first_name', length=128, label=T('Nombre')),
+    Field('last_name', length=128, label=T('Apellido')),
+    Field('email', length=128, default='', unique=True),
+    Field('username', length=128, label=T('Nombre de Usuario')),
+    Field('password', 'password', length=512,
+          readable=False, label=T('Password')),
+    Field('registration_key', length=512,
+          writable=False, readable=False, default=''),
+    Field('reset_password_key', length=512,
+          writable=False, readable=False, default=''),
+    Field('registration_id', length=512,
+          writable=False, readable=False, default=''))
+
+custom_auth_table = db[auth.settings.table_user_name] # get the custom_auth_table
+custom_auth_table.dni.requires = [
+  IS_NOT_EMPTY(error_message=auth.messages.is_empty),
+  IS_NOT_IN_DB(db, custom_auth_table.dni)]
+custom_auth_table.first_name.requires = \
+  IS_NOT_EMPTY(error_message=auth.messages.is_empty)
+custom_auth_table.last_name.requires = \
+  IS_NOT_EMPTY(error_message=auth.messages.is_empty)
+custom_auth_table.username.requires = [
+  IS_NOT_EMPTY(error_message=auth.messages.is_empty),
+  IS_NOT_IN_DB(db, custom_auth_table.username)]
+custom_auth_table.password.requires = []
+custom_auth_table.email.requires = [
+  IS_EMAIL(error_message=auth.messages.invalid_email),
+  IS_NOT_IN_DB(db, custom_auth_table.email)]
+auth.settings.table_user = custom_auth_table
 
 # -------------------------------------------------------------------------
 # configure email
 # -------------------------------------------------------------------------
+
 mail = auth.settings.mailer
-mail.settings.server = 'logging' if request.is_local else myconf.get('smtp.server')
-mail.settings.sender = myconf.get('smtp.sender')
+mail.settings.server = 'logging' if request.is_local else myconf.get('smtp.gmail.com:587')
+mail.settings.sender = myconf.get('leandrogarrido096@gmail.com')
 mail.settings.login = myconf.get('smtp.login')
 mail.settings.tls = myconf.get('smtp.tls') or False
 mail.settings.ssl = myconf.get('smtp.ssl') or False
 
 # -------------------------------------------------------------------------
+# define-tabla
+# -------------------------------------------------------------------------
+
+auth.define_tables(username=True, signature=False)
+
+# -------------------------------------------------------------------------
 # configure auth policy
 # -------------------------------------------------------------------------
+
 auth.settings.registration_requires_verification = False
-auth.settings.registration_requires_approval = False
+auth.settings.registration_requires_approval = True
 auth.settings.reset_password_requires_verification = True
+auth.settings.create_user_groups = False
 
 # -------------------------------------------------------------------------
 # Define your tables below (or better in another model file) for example

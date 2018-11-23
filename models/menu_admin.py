@@ -48,6 +48,10 @@ response.menu_admin +=[
             (T('B'), False, ''),
             (T('C'), False, ''),
         ]),
+    (T('Usuarios'), False, None, [
+            (T('Altas'), False, URL('altas','listar_usuarios')),
+            (T('Bajas'), False, URL('bajas','listar_usuarios')),
+        ])
 ]
 
 DEVELOPMENT_MENU = True

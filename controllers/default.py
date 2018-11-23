@@ -10,15 +10,18 @@
 
 
 def index():
-    """
-    example action using the internationalization operator T and flash
-    rendered by views/default/index.html or views/generic.html
-
-    if you need a simple wiki simply replace the two lines below with:
-    return auth.wiki()
-    """
-    response.flash = T("Hello World")
-    return dict(message=T('Welcome to web2py!'))
+    response.flash = T("¡Bienvenido!")
+    nombre_rol='sin rol'
+    if auth.user_id:#auth.user_id tiene el id del user logeado
+        reg_id_group_logeado=db(auth.user.id==db.auth_membership.user_id).select(db.auth_membership.group_id)
+        id_group_logeado=reg_id_group_logeado[0].group_id #filtro de datos 
+        reg_nombre_rol=db(id_group_logeado==db.auth_group.id).select(db.auth_group.role)
+        nombre_rol=reg_nombre_rol[0].role
+        if nombre_rol == 'Administrador':
+            redirect(URL('principal_admin'))
+        elif nombre_rol=='Auxiliar Administrativo':
+            redirect(URL('principal_auxiliar'))
+    return dict(message=T("¡Bienvenido a SEF!"))
 
 
 def user():
@@ -58,4 +61,10 @@ def call():
     """
     return service()
 
+@auth.requires_membership(role='Auxiliar Administrativo')
+def principal_auxiliar():
+    return dict ()
 
+@auth.requires_membership(role='Administrador')
+def principal_admin():
+    return dict ()
