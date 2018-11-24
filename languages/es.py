@@ -180,6 +180,8 @@
 'Edit This App': 'Edite esta App',
 'Editing file': 'Editando archivo',
 'Editing file "%s"': 'Editando archivo "%s"',
+'El año ingresado no esta en la base de datos.': 'El año ingresado no esta en la base de datos.',
+'El DNI ingresado no esta en la base de datos.': 'El DNI ingresado no esta en la base de datos.',
 'Elegir una opción': 'Elegir una opción',
 'Eliminar': 'Eliminar',
 'Email and SMS': 'Correo electrónico y SMS',
