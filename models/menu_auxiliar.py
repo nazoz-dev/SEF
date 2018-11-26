@@ -37,7 +37,7 @@ response.menu_auxiliar +=[
             (T('Bajas'), False, URL('bajas','buscar_dni'),[]),
             (T('Modificaciones'),False, URL('modificaciones','buscar_dni'),[]),
         ]),
-    (T('Facturacion'), False, URL('facturacion', 'buscar_dni'), []),
+    (T('Facturacion'), False, URL('facturacion', 'auxiliar_buscar_dni'), []),
 ]
 
 DEVELOPMENT_MENU = True

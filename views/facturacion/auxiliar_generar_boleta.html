@@ -1,0 +1,121 @@
+{{extend 'layout_auxiliar.html'}}
+<h1>VISTA PREVIA: BOLETA DE PAGO</h1>
+<body style="background-color:#87CEEB;">
+    {{=request.vars}}
+    <br>
+    mes: {{=request.now.month}}
+    <br>
+{{=dni_seleccionado}}
+    <br>
+{{=curso_seleccionado}}
+    <br>
+{{=cuotas_seleccionado}}
+    <br>
+{{=importe}}
+    <br>
+{{=mantenimiento}}
+    <br>
+{{=mes}}
+    <br>
+{{=total_importe}}
+    <form class="form-horizontal">
+        <div class="form-group">
+            <div class="col-xs-12 text-center">
+                <table class="table table-bordered" style="background-color:#FFFFFF">
+                    <thead>
+                        <tr>
+                            <th>
+                                <h2><img SRC="http://www.hersis.cl/servicios/servicio_tecnico.png" WIDTH=178 HEIGHT=180></img> Instituto Educativo</h2>
+                            </th>
+                            <th>
+                                <center>
+                                    <h1>Boleta de Pago</h1>
+                                    <h4>N° xxxxx</h4>
+                                    <h4>Fecha: {{=request.now.day}}/{{=request.now.month}}/{{=request.now.year}}</h4>
+                                    <h4>CUIT 30-65782398-9</h4>
+                                    <h4>Ing.Brutos Exento</h4>
+                                </center>
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-xs-12">
+                <table class="table table-bordered" style="background-color:#FFFFFF">
+                    <thead>
+                        <th>
+                            <div class="col-xs-4 text-left"><h4>1° Vencimiento:</h4></div>
+                            <div class="col-xs-4 text-left"><h4>10/xx/xxx</h4></div>
+                            <div class="col-xs-4 text-left"><h4>$4000,00</h4></div>
+                        </th>
+                        <th>
+                            <div class="col-xs-4 text-left"><h4>2° Vencimiento:</h4></div>
+                            <div class="col-xs-4 text-left"><h4>27/xx/xxx</h4></div>
+                            <div class="col-xs-4 text-left"><h4>$4100,00</h4></div>
+                        </th>
+                    </thead>
+                </table>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-xs-12">
+                <table class="table table-bordered" style="background-color:#FFFFFF">
+                    <thead>
+                        <tr class="success">
+                            <th><h4><b>MATRICULA</b></h4></th>
+                            <th><h4><b>ALUMNO</b></h4></th>
+                            <th><h4><b>CURSO</b></h4></th>
+                            <th><h4><b>CONCEPTO</b></h4></th>
+                            <th><h4><b>IMPORTE</b></h4></th>
+                        </tr>
+                            {{for x, y, z in zip(dni_seleccionado, curso_seleccionado, cuotas_seleccionado):}}
+                        <TR>
+                            <TD class="text-right"><BR>{{=x.dni}}</CENTER><BR></TD>
+                            <TD class="text-right"><BR>{{=x.apellido.capitalize()}} {{=x.nombre.capitalize()}}</CENTER><BR></TD>
+                            <TD class="text-right"><BR>{{=y.curso}} {{=y.division}} - Turno {{=y.turno}} - {{=y.nivel}}</CENTER><BR></TD>
+                            <TD class="text-right"><BR>Cuota {{=mes}} {{=z.cuota.ciclo}} </CENTER><BR></TD>
+                            <TD class="text-right"><BR>${{=importe}}<BR></TD>
+                        </TR>
+
+                        <TR>
+                            <TD class="text-right"><BR>{{=x.dni}}</CENTER><BR></TD>
+                            <TD class="text-right"><BR>{{=x.apellido.capitalize()}} {{=x.nombre.capitalize()}}</CENTER><BR></TD>
+                            <TD class="text-right"><BR>{{=y.curso}} {{=y.division}} - Turno {{=y.turno}} - {{=y.nivel}}</CENTER><BR></TD>
+                            <TD class="text-right"><BR>Cuota Mantenimiento {{=z.cuota.ciclo}} </CENTER><BR></TD>
+                            <TD class="text-right"><BR>${{=mantenimiento}}<BR></TD>
+                        </TR>
+                            {{pass}}
+                    </thead>
+                </table>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-xs-5 col-md-offset-7">
+                <table class="table table-bordered" style="background-color:#FFFFFF">
+                    <thead>
+                        <tr class="success">
+                            <th><h4><B>TOTAL</B></h4></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class=" text-right "><h4>${{=total_importe}}</h4></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </form>
+    <div class="col-xs-12 col-md-12">
+        <center><a class="btn btn-primary" href="{{=URL(r=request ,c='mercadopago', f='index', args=[descripcion, total_importe])}}" role="button">Pagar</a></center>
+    </div>
+</body>
+<br></br>
+<br></br>
