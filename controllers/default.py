@@ -10,7 +10,6 @@
 
 
 def index():
-    response.flash = T("¡Bienvenido!")
     nombre_rol='sin rol'
     if auth.user_id:#auth.user_id tiene el id del user logeado
         reg_id_group_logeado=db(auth.user.id==db.auth_membership.user_id).select(db.auth_membership.group_id)
@@ -21,7 +20,7 @@ def index():
             redirect(URL('principal_admin'))
         elif nombre_rol=='Auxiliar Administrativo':
             redirect(URL('principal_auxiliar'))
-    return dict(message=T("¡Bienvenido a SEF!"))
+    return dict()
 
 
 def user():

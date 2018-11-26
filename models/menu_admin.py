@@ -32,10 +32,6 @@ response.menu_admin = [
     (T('Home'), False, URL('default', 'index'), [])]
 
 response.menu_admin +=[
-    (T('Usuarios'), False, None, [
-            (T('Altas'), False, URL('altas','listar_usuarios')),
-            (T('Bajas'), False, URL('bajas','listar_usuarios')),
-        ]),
     (T('Cursos'), False, None, [
             (T('Altas'), False, URL('altas','cursos')),
             (T('Bajas'), False, URL('bajas','buscar_nivel_turno')),
@@ -53,6 +49,13 @@ response.menu_admin +=[
             (T('C'), False, ''),
         ])
 ]
+
+"""
+    (T('Usuarios'), False, None, [
+            (T('Altas'), False, URL('altas','listar_usuarios')),
+            (T('Bajas'), False, URL('bajas','listar_usuarios')),
+        ]),
+"""
 
 DEVELOPMENT_MENU = True
 

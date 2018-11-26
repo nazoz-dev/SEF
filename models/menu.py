@@ -32,7 +32,7 @@ response.menu = [
     (T('Home'), False, URL('default', 'index'), [])]
 
 response.menu +=[
-    (T('Facturacion'), False, URL('facturacion', 'buscar_dni'), []),
+    (T('Buscar Boleta de Pago'), False, URL('facturacion', 'buscar_dni'), []),
 
 ]
 

@@ -1,23 +1,6 @@
 {{extend 'layout.html'}}
 <h1>VISTA PREVIA: BOLETA DE PAGO</h1>
 <body style="background-color:#87CEEB;">
-    {{=request.vars}}
-    <br>
-    mes: {{=request.now.month}}
-    <br>
-{{=dni_seleccionado}}
-    <br>
-{{=curso_seleccionado}}
-    <br>
-{{=cuotas_seleccionado}}
-    <br>
-{{=importe}}
-    <br>
-{{=mantenimiento}}
-    <br>
-{{=mes}}
-    <br>
-{{=total_importe}}
     <form class="form-horizontal">
         <div class="form-group">
             <div class="col-xs-12 text-center">
@@ -25,15 +8,13 @@
                     <thead>
                         <tr>
                             <th>
-                                <h2><img SRC="http://www.hersis.cl/servicios/servicio_tecnico.png" WIDTH=178 HEIGHT=180></img> Instituto Educativo</h2>
+                                <h4><center><img SRC="/SEF/static/images/logo.jpg" WIDTH=178 HEIGHT=180></img></center></h4>
+                        <center><h2>Instituto Educativo</h2></center>
                             </th>
                             <th>
                                 <center>
                                     <h1>Boleta de Pago</h1>
-                                    <h4>N° xxxxx</h4>
                                     <h4>Fecha: {{=request.now.day}}/{{=request.now.month}}/{{=request.now.year}}</h4>
-                                    <h4>CUIT 30-65782398-9</h4>
-                                    <h4>Ing.Brutos Exento</h4>
                                 </center>
                             </th>
                         </tr>
@@ -44,20 +25,6 @@
 
         <div class="form-group">
             <div class="col-xs-12">
-                <table class="table table-bordered" style="background-color:#FFFFFF">
-                    <thead>
-                        <th>
-                            <div class="col-xs-4 text-left"><h4>1° Vencimiento:</h4></div>
-                            <div class="col-xs-4 text-left"><h4>10/xx/xxx</h4></div>
-                            <div class="col-xs-4 text-left"><h4>$4000,00</h4></div>
-                        </th>
-                        <th>
-                            <div class="col-xs-4 text-left"><h4>2° Vencimiento:</h4></div>
-                            <div class="col-xs-4 text-left"><h4>27/xx/xxx</h4></div>
-                            <div class="col-xs-4 text-left"><h4>$4100,00</h4></div>
-                        </th>
-                    </thead>
-                </table>
             </div>
         </div>
 
