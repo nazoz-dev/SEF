@@ -45,8 +45,7 @@ response.menu_admin +=[
     (T('Cuota por Alumno'), False, URL('altas','cxa'),[]),
     (T('Reportes'), False, None, [
             (T('Listar Cuotas'), False, URL('reportes','buscar_ciclo')),
-            (T('B'), False, ''),
-            (T('C'), False, ''),
+            (T('Listar Morosos'), False, URL('reportes','buscar_curso')),
         ])
 ]
 

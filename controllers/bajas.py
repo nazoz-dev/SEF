@@ -90,6 +90,16 @@ def lista_cuotas():
     reg = db((ciclo == db.cuota.ciclo) & (db.cuota.nivel==nivel)).select(db.cuota.ALL) #mediante una consulta a la db obtiene un reg con los datos del usuario seleccionado
     return dict(reg=reg, ciclo=ciclo, nivel=nivel)
 
+def eliminar_cuotas():
+    ciclo=request.args[0]
+    nivel=request.args[1]
+    reg=(ciclo == db.cuota.ciclo) & (db.cuota.nivel==nivel)
+    db(reg).delete()
+    redirect(URL('buscar_ciclo',args=(),vars=dict()))
+    return dict()
+
+######################################################################################################################################################################################################################
+
 def cuotas():
     inscripcion='Inscripción'
     mes=['Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre',]

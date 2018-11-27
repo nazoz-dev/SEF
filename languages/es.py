@@ -285,6 +285,7 @@
 'Layouts': 'Diseños de páginas',
 'License for': 'Licencia para',
 'Listar Cuotas': 'Listar Cuotas',
+'Listar Morosos': 'Listar Morosos',
 'Live Chat': 'Chat en vivo',
 'loading...': 'cargando...',
 'Localidad': 'Localidad',
