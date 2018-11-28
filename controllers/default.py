@@ -67,3 +67,10 @@ def principal_auxiliar():
 @auth.requires_membership(role='Administrador')
 def principal_admin():
     return dict ()
+
+def pagando():
+    id_cxa= request.args[0]
+    q= id_cxa==db.cxa.id
+    db(q).update(estado="Pago")
+    redirect(URL('index'))
+    return dict ()

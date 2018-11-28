@@ -36,6 +36,7 @@ def generar_boleta():
         #db.cuotas_seleccionado.cxa.estado=="Pendiente"
         cuota_pendiente=db(validador).select()
         for w in cuota_pendiente:
+            id_cxa=w.cxa.id
             ciclo=w.cuota.ciclo
             mes=w.cuota.mes
             importe=w.cuota.importe
@@ -51,7 +52,7 @@ def generar_boleta():
             #else:
              #   break
         #cuota_seleccionado=db((db.cxa.id_alumno==id_alumno_seleccionado) & (db.cxa.id_cuota==cuotaid)).select()
-    return dict(dni_seleccionado=dni_seleccionado, curso_seleccionado=curso_seleccionado, cuotas_seleccionado=cuotas_seleccionado, mantenimiento=mantenimiento, importe=importe, mes=mes, total_importe=total_importe, descripcion=descripcion)
+    return dict(dni_seleccionado=dni_seleccionado, curso_seleccionado=curso_seleccionado, cuotas_seleccionado=cuotas_seleccionado, mantenimiento=mantenimiento, importe=importe, mes=mes, total_importe=total_importe, descripcion=descripcion, id_cxa=id_cxa)
 #lista alumnos por un lado y cuotas por otro, de ahi realiza una consulta para que el id del dni que se ingreso sea igual al del alumno y con el id del alumno y las cuotas realizar un for con consulta para saber cual esta en True 
 
 def auxiliar_buscar_dni():

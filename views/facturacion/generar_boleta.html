@@ -1,4 +1,5 @@
 {{extend 'layout.html'}}
+
 <h1>VISTA PREVIA: BOLETA DE PAGO</h1>
 <body style="background-color:#87CEEB;">
     <form class="form-horizontal">
@@ -80,8 +81,11 @@
             </div>
         </div>
     </form>
-    <div class="col-xs-12 col-md-12">
+    <div class="col-xs-6 col-md-6">
         <center><a class="btn btn-primary" href="{{=URL(r=request ,c='mercadopago', f='index', args=[descripcion, total_importe])}}" role="button">Pagar</a></center>
+    </div>
+    <div class="col-xs-6 col-md-6">
+        <center><a class="btn btn-primary" href="{{=URL(r=request ,c='default', f='pagando', args=[id_cxa])}}" role="button">Recargar</a></center>
     </div>
 </body>
 <br></br>
