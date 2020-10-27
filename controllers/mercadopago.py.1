@@ -14,7 +14,7 @@ def index():
                 "title": descripcion,
                 "currency_id": "ARS",
                 "picture_url": "https://www.mercadopago.com/org-img/MP3/home/logomp3.gif",
-                "quantity": 10,
+                "quantity": 1,
                 "unit_price": 1 #total
             }
         ],
@@ -46,58 +46,26 @@ def notificacion():
     info = request.vars['id']
 
     paymentInfo = mp.get_payment_info(info)
-    mp_id=int(paymentInfo["response"]["id"])
-    cxa_id=int(paymentInfo["response"]["external_reference"])
 
     if paymentInfo["status"] == 200:
-        f= db(mp_id==db.notificaciones.id_mp).select()
-        if not f:
-            k="None"
-            if k=="None":
-                noti=db.notificaciones.insert(
-                            id_mp=int(paymentInfo["response"]["id"]),
-                            id_cxa=int(paymentInfo["response"]["external_reference"]),
-                            estado_mp=str(paymentInfo["response"]["status"])
-                          )
-        else:
-            g=9
-
+        noti=db.notificaciones.insert(
+                    id_mp=int(paymentInfo["response"]["id"]),
+                    id_cxa=paymentInfo["response"]["external_reference"],
+                    estado=paymentInfo["response"]["status"]
+                  )
+        mp_id=int(paymentInfo["response"]["id"])
         q= mp_id==db.notificaciones.id_mp
-        #db(q).update(estado_mp="approved") # simular que el pago fue realizado
-
-        consulta= db((mp_id==db.notificaciones.id_mp) & (cxa_id==db.cxa.id)).select(db.notificaciones.estado_mp)
-        reg=consulta[0].estado_mp
-        if reg=="approved":
-            db(cxa_id==db.cxa.id).update(estado="Pago")
-        resul= db((mp_id==db.notificaciones.id_mp) & (cxa_id==db.cxa.id)).select()
+        db(q).update(estado="approved")
+        q_apr= db(q).select(db.notificaciones.estado)
+        if q_apr=="approved":
+            q_id_cxa =db(q).select(db.notificaciones.id_cxa)
+            q_pago= db(q_id_cxa==db.cxa.id).select(db.cxa.estado)
+            db(q_pago).update(estado="Pago")
         response.view = "generic.html"
-        return {"pref": resul}
+        return {"pref": paymentInfo}
     else:
         return None
     return dict()
-
-def prueba():
-    mp_id=5046169359
-    f= db(db.notificaciones).select()
-    resul= db(mp_id==db.notificaciones.id_mp).select()
-    if not resul:
-        k="None"
-        response.view = "generic.html"
-        return {"pref": k}
-    else:
-        g='hola?'
-    
-    #cxa_id=5
-    #consulta= db((mp_id==db.notificaciones.id_mp) & (cxa_id==db.cxa.id)).select(db.notificaciones.estado_mp)
-    #la=consulta[0].estado_mp
-    #if la=="approved":
-        #q=cxa_id==db.cxa.id
-        #db(q).update(estado="Pago")
-        #a=1
-        #response.view = "generic.html"
-        #return {"pref": a}
-    response.view = "generic.html"
-    return {"pref": g}
 
 
 def buscar():
@@ -107,14 +75,13 @@ def buscar():
     mp = mercadopago.MP("5736858946061665", "kpNLy0Ikt7mpMscl0REBJecuKfN6H35i")
     
     filters = {
-        "id": "5046169359"
+        "id": "5009165669"
     }
 
     # Search payment data according to filters
     searchResult = mp.search_payment(filters)
     
-    resul=searchResult["response"]#["results"][0]["status"]
     # Show payment information
     response.view = "generic.html"
 
-    return {"pref": resul}
+    return {"pref": searchResult}

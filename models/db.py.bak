@@ -234,7 +234,7 @@ db.alumno.curso.requires=IS_IN_DB(db,'curso.id', '%(curso)s - %(division)s - %(t
 db.define_table('cxa',
                 Field('id_alumno', db.alumno, label=T('Alumno')),
                 Field('id_cuota',db.cuota, label=T('Cuota')),
-                Field('estado', 'string', label=T('Estado')), #campo de cuota abonada
+                Field("estado"), #campo de cuota abonada
                 Field('registro', 'datetime',writable=False, readable=False,default=request.now),
                )
 ############################################# Fin de la Alumno x Cuota ##################################################
@@ -242,7 +242,7 @@ db.define_table('cxa',
 db.define_table("notificaciones",
                 Field("id_mp"),
                 Field("id_cxa"),
-                Field("estado_mp", 'string'),
+                Field("estado_mp"),
                 Field('registro', 'datetime',writable=False, readable=False, default=request.now),
                )
 #db.notificaciones.id_cxa.requires=IS_IN_DB(db,'cxa.id')

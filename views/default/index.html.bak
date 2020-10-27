@@ -24,6 +24,8 @@
                                                         <h4>
                                                             <center>
                                                                 Es una herramienta que facilita el pago de las cuotas de los alumnos en una institución educativa por medio de su sistema de pagos online, el cual ofrece distintos medios de pagos (tarjera de crédito/débito, rapipago, pago fácil, entre otros).
+                                                                <script src="https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js"></script>
+
                                                             </center>
                                                         </h4>
                                                     </div>

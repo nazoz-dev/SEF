@@ -1,0 +1,5 @@
+{{extend 'layout.html'}}
+<h1>Está es la plantilla mercadopago/notificacion.html</h1>
+
+{{=paymentInfo}}
+{{=BEAUTIFY(response._vars)}}

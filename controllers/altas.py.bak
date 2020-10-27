@@ -3,7 +3,7 @@
 def alumnos():
     formulario=SQLFORM(db.alumno).process()
     if formulario.accepts(request.vars, session):
-# si acepta el formulario vincula al alumno con las cuotas y el curso
+
         curso_alumno=''
         ciclo=request.now.year
         estado='Pendiente'

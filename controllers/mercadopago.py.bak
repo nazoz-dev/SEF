@@ -113,7 +113,7 @@ def buscar():
     # Search payment data according to filters
     searchResult = mp.search_payment(filters)
     
-    resul=searchResult["response"]#["results"][0]["status"]
+    resul=searchResult["response"],searchResult[1]#["results"][0]["status"]
     # Show payment information
     response.view = "generic.html"
 
